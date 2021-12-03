@@ -3,9 +3,11 @@ USE final;
 CREATE USER 'user' identified by 'password';
 grant all priviledges on final.* to 'user'@'%';
 
-CREATE TABLE `final`.`Admin` ( `Admin_ID` INT NOT NULL AUTO_INCREMENT , `Name` VARCHAR(50) NOT NULL DEFAULT '', `email` VARCHAR(50) NOT NULL DEFAULT '' , `Password` VARCHAR(50) NOT NULL DEFAULT '' , `superAdmin` BOOLEAN NOT NULL DEFAULT false, PRIMARY KEY (`Admin_ID`)) ENGINE = InnoDB;
+CREATE TABLE `final`.`Users` (`User_ID` INT NOT NULL AUTO_INCREMENT, `email` VARCHAR(50) NOT NULL DEFAULT '', `Name` VARCHAR(50) NOT NULL DEFAULT '', `Password` VARCHAR(50) NOT NULL DEFAULT '', PRIMARY KEY (`User_ID`)) ENGINE = InnoDB;
 
-CREATE TABLE `final`.`Professor` ( `Prof_ID` INT NOT NULL AUTO_INCREMENT , `Name` VARCHAR(50) NOT NULL DEFAULT '', `email` VARCHAR(50) NOT NULL DEFAULT '' , `Password` VARCHAR(50) NOT NULL DEFAULT '' , PRIMARY KEY (`Prof_ID`)) ENGINE = InnoDB;
+CREATE TABLE `final`.`Admin` ( `Admin_ID` INT NOT NULL AUTO_INCREMENT , `User_ID` INT NOT NULL , `superAdmin` BOOLEAN NOT NULL DEFAULT false, PRIMARY KEY (`Admin_ID`)) ENGINE = InnoDB;
+
+CREATE TABLE `final`.`Professor` ( `Prof_ID` INT NOT NULL AUTO_INCREMENT , `User_ID` INT NOT NULL, PRIMARY KEY (`Prof_ID`)) ENGINE = InnoDB;
 
 CREATE TABLE `final`.`Class` ( `Class_ID` INT NOT NULL AUTO_INCREMENT , `Name` VARCHAR(50) NOT NULL DEFAULT '', `Prof_id` INT DEFAULT NULL, `Sem_ID` INT DEFAULT NULL, PRIMARY KEY (`Class_ID`)) ENGINE = InnoDB;
 
