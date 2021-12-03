@@ -7,7 +7,7 @@
 	$firstName = "";
 	$lastName = "";
 
-	$conn = new mysqli("localhost", "username", "password", "database"); 	
+	$conn = new mysqli("localhost", "user", "password", "database"); 	
 	if( $conn->connect_error )
 	{
 		returnWithError( $conn->connect_error );
