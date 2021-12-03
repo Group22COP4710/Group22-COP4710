@@ -3,8 +3,10 @@
 	$inData = getRequestInfo();
 	
 	$id = 0;
-	$firstName = "";
-	$lastName = "";
+	$email = "";
+	$password = "";
+	$name = "";
+	$type = "";
 
 	$conn = new mysqli("localhost", "user", "password", "final"); 	
 	if( $conn->connect_error )
