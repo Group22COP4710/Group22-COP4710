@@ -1,7 +1,7 @@
 CREATE DATABASE final;
 USE final;
 CREATE USER 'user' identified by 'password';
-GRANT ALL PRIVLEDGES on final.* to 'user'@'%';
+grant all priviledges on final.* to 'user'@'%';
 
 CREATE TABLE `final`.`Admin` ( `Admin_ID` INT NOT NULL AUTO_INCREMENT , `Name` VARCHAR(50) NOT NULL DEFAULT '', `email` VARCHAR(50) NOT NULL DEFAULT '' , `Password` VARCHAR(50) NOT NULL DEFAULT '' , `superAdmin` BOOLEAN NOT NULL DEFAULT false, PRIMARY KEY (`Admin_ID`)) ENGINE = InnoDB;
 
