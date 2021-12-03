@@ -1,7 +1,7 @@
 <?php 
 
-	$email = $title = '';
-	$errors = array('email' => '', 'title' => '');
+	$title = $authors = $edition = $publisher = $ISBN = '';
+	$errors = array('title' => '', 'authors' => '', 'edition' => '', 'publisher' => '', 'ISBN' => '');
 
 	if(isset($_POST['submit'])){
 		
@@ -25,53 +25,53 @@
 			}
 		}
 
-		if(array_filter($errors)){
-			//echo 'errors in form';
-		} else {
-			//echo 'form is valid';
-			header('Location: homepage.php');
-		}
+		echo $email;
+		echo $title;
 
 	} // end POST check
 
 ?>
 
+
+
 <!DOCTYPE html>
 <html>
-	<link href="../css/styles.css" rel="stylesheet">	
-	<?php include('../templates/header.php'); ?>
 
-	<section class="container grey-text requests-container" style="display: flex important!;">
+	<section class="grey-text requests-container">
 		
 		<form class="white book-request-form" action="book_requests.php" method="POST">
-			<h4 class="center">Create new book request</h4>
+			<h4 class="center">Add new book request</h4>
+			<hr />
 			<br />
-			<label>Your Email</label>
-			<input type="text" name="email" value="<?php echo htmlspecialchars($email) ?>">
-			<div class="red-text"><?php echo $errors['email']; ?></div>
-			<label>Book Title</label>
-			<input type="text" name="title" value="<?php echo htmlspecialchars($title) ?>">
-			<div class="red-text"><?php echo $errors['title']; ?></div>
-			<div class="center">
-				<input type="submit" name="submit" value="Submit" class="btn brand z-depth-0">
-			</div>
-		</form>
 
-		<form class="white book-request-form" action="book_requests.php" method="POST">
-		<h4 class="center">Search book request</h4>
-			<br />
-			<label>Your Email</label>
-			<input type="text" name="email" value="<?php echo htmlspecialchars($email) ?>">
-			<div class="red-text"><?php echo $errors['email']; ?></div>
 			<label>Book Title</label>
-			<input type="text" name="title" value="<?php echo htmlspecialchars($title) ?>">
+			<input type="text" name="email" value="<?php echo htmlspecialchars($title) ?>">
 			<div class="red-text"><?php echo $errors['title']; ?></div>
+
+			<label>Authors Name(s)</label>
+			<input type="text" name="authors" value="<?php echo htmlspecialchars($authors) ?>">
+			<div class="red-text"><?php echo $errors['authors']; ?></div>
+
+			<label>Book edition</label>
+			<input type="text" name="edition" value="<?php echo htmlspecialchars($edition) ?>">
+			<div class="red-text"><?php echo $errors['edition']; ?></div>
+
+			<label>Publisher</label>
+			<input type="text" name="publisher" value="<?php echo htmlspecialchars($publisher) ?>">
+			<div class="red-text"><?php echo $errors['publisher']; ?></div>
+
+			<label>ISBN</label>
+			<input type="text" name="ISBN" value="<?php echo htmlspecialchars($ISBN) ?>">
+			<div class="red-text"><?php echo $errors['ISBN']; ?></div>
+
 			<div class="center">
 				<input type="submit" name="submit" value="Submit" class="btn brand z-depth-0">
 			</div>
-		</form>
+		</form>		
 	</section>
 
-	<?php include('templates/footer.php'); ?>
+	<div class="center">
+		<a href="" class="view-edit-form btn brand z-depth-0" name="book-requests">View/edit request form</a>
+	</div>
 
 </html>
