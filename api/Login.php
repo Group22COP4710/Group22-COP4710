@@ -55,7 +55,7 @@
 	
 	function returnWithInfo( $name, $id, $type )
 	{
-		$retValue = '{"id":' . $id . ',"Name":"' . $name . ',"User_Type":"' . $type . '","error":""}';
+		$retValue = '{"id":' . $id . ',"Name":"' . $name . '","User_Type":"' . $type . '","error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
 	
