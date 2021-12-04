@@ -11,7 +11,7 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("SELECT Order_ID, Title, Deadline,ISBN, Author, Edition, Publisher FROM Users WHERE User_ID = ?");
+		$stmt = $conn->prepare("SELECT Order_ID, Title, Deadline,ISBN, Author, Edition, Publisher FROM bookOrder WHERE User_ID = ?");
 		$stmt->bind_param("s", $inData["User_ID"]);
 		$stmt->execute();
 		$result = $stmt->get_result();
