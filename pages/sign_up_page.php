@@ -1,3 +1,41 @@
+<?php
+    $email = $password = '';
+    $errors = array('email' => '', 'password' => '');
+    $creation = array('success' => '');
+
+    if(isset($_POST['submit'])){
+        
+        // check email
+        if(empty($_POST['email'])){
+            $errors['email'] = 'An email is required';
+        } else{
+            $email = $_POST['email'];
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                $errors['email'] = 'Email must be a valid email address';
+            }
+        }
+
+        if(empty($_POST['password'])){
+            $errors['password'] = 'Password is required';
+        } else{
+            $password = $_POST['password'];
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                $errors['email'] = 'Password must follow restrictions';
+            }
+        }
+
+        if(array_filter($errors)){
+            // echo 'errors in form';
+        } else {
+            // echo 'form is valid';
+            echo $email . " " . $password;
+            $creation['success'] = 'Account created successfully';
+            // header('Location: index.php');
+        }	
+
+    } // end POST check
+?>
+
 <html>
 <head>
 	<title>COP 4710 Book Order Site</title>
@@ -9,15 +47,20 @@
 
 	<section class="container grey-text">
 		<h1 class="brand-logo brand-text center">COP 4710 Book Order Site</h1>
-		<form class="white login-form" action="index.php" method="POST">
+        <hr>
+		<h3 class="brand-logo brand-text center">Create new account</h3>
+
+		<form class="white login-form" action="sign_up_page.php" method="POST">
 			<label>Email</label>
-			<input type="text" name="email" value="<?php echo htmlspecialchars($email) ?>">
+			<input type="text" name="email" value="">
 			<div class="red-text"><?php echo $errors['email']; ?></div>
-			<label>Password</label>
-			<input type="text" name="password" value="<?php echo htmlspecialchars($password) ?>">
+            <label>Password</label>
+			<input type="text" name="password" value="">
 			<div class="red-text"><?php echo $errors['password']; ?></div>
+
 			<div class="center">
-				<input type="submit" name="login" value="Login" class="btn brand z-depth-0">
+                <div class="green-text"><?php echo $creation['success']; ?></div>
+				<input type="submit" name="submit" value="Create account" class="btn brand z-depth-0">
 				<br /><br />
 
 				<a href="../index.php" id="sign-up-link">Back to login</a>
