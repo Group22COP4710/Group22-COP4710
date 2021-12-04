@@ -1,13 +1,12 @@
-create database final;
-use final;
-create user 'user' identified by 'password';
-grant all priviliges on final.* to 'user'@'%';
+CREATE DATABASE final;
+USE final;
+CREATE USER 'user' identified by 'password';
+GRANT ALL PRIVILEDGES on final.* to 'user'@'%';
 
-CREATE TABLE `final`.`Admin` ( `Admin_ID` INT NOT NULL AUTO_INCREMENT , `Name` VARCHAR(50) NOT NULL DEFAULT '', `email` VARCHAR(50) NOT NULL DEFAULT '' , `Password` VARCHAR(50) NOT NULL DEFAULT '' , `superAdmin` BOOLEAN NOT NULL DEFAULT false, PRIMARY KEY (`Admin_ID`)) ENGINE = InnoDB;
+CREATE TABLE `final`.`Users` (`User_ID` INT NOT NULL AUTO_INCREMENT, `email` VARCHAR(50) NOT NULL DEFAULT '', `Name` VARCHAR(50) NOT NULL DEFAULT '', `Password` VARCHAR(50) NOT NULL DEFAULT '', `User_Type` VARCHAR(50) NOT NULL DEFAULT 'Professor', PRIMARY KEY (`User_ID`)) ENGINE = InnoDB;
+# user types: 'Professor', 'Admin', 'Super_Admin'
 
-CREATE TABLE `final`.`Professor` ( `Prof_ID` INT NOT NULL AUTO_INCREMENT , `Name` VARCHAR(50) NOT NULL DEFAULT '', `email` VARCHAR(50) NOT NULL DEFAULT '' , `Password` VARCHAR(50) NOT NULL DEFAULT '' , PRIMARY KEY (`Prof_ID`)) ENGINE = InnoDB;
-
-CREATE TABLE `final`.`Class` ( `Class_ID` INT NOT NULL AUTO_INCREMENT , `Name` VARCHAR(50) NOT NULL DEFAULT '', `Prof_id` INT DEFAULT NULL, `Sem_ID` INT DEFAULT NULL, PRIMARY KEY (`Class_ID`)) ENGINE = InnoDB;
+CREATE TABLE `final`.`Class` ( `Class_ID` INT NOT NULL AUTO_INCREMENT , `Name` VARCHAR(50) NOT NULL DEFAULT '', `User_ID` INT DEFAULT NULL, `Sem_ID` INT DEFAULT NULL, PRIMARY KEY (`Class_ID`)) ENGINE = InnoDB;
 
 CREATE TABLE `final`.`bookOrder` ( `Order_ID` INT NOT NULL AUTO_INCREMENT , `Title` VARCHAR(50) NOT NULL DEFAULT '', `Deadline` DATETIME DEFAULT NULL, `ISBN` VARCHAR(50) NOT NULL DEFAULT '', `Author` VARCHAR(50) NOT NULL DEFAULT '', `Edition` INT NOT NULL DEFAULT 1, `Publisher` VARCHAR(50) NOT NULL DEFAULT '', `Class_ID` INT DEFAULT NULL, PRIMARY KEY (`Order_ID`)) ENGINE = InnoDB;
 
