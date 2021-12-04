@@ -1,13 +1,11 @@
-
-
 <html>
 <head>
 	<title>COP 4710 Book Order Site</title>
-    <link href="css/styles.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="../css/styles.css" rel="stylesheet">	
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 </head>
-<body>
+<body class="grey lighten-4">
 
 	<section class="container grey-text">
 		<h1 class="brand-logo brand-text center">COP 4710 Book Order Site</h1>
@@ -22,8 +20,7 @@
 				<input type="submit" name="login" value="Login" class="btn brand z-depth-0">
 				<br /><br />
 
-				<a href="pages/sign_up_page.php" id="sign-up-link" style="margin-right: 20px;">New here? Sign up</a>
-				<a href="pages/forgot_password_page.php" id="sign-up-link">Forgot password?</a>
+				<a href="../index.php" id="sign-up-link">Back to login</a>
 			</div>
 		</form>
 

@@ -5,9 +5,6 @@
     color: #cbb09c !important;
 }
 
-/* .requests-container {
-    display: flex !important;
-} */
 
 .book_request_form {
     width: 460px !important;
@@ -26,3 +23,4 @@ form{
 .accounts-page {
     margin-top: 25px;
 }
+
