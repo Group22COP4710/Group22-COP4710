@@ -13,7 +13,7 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("SELECT Order_ID, Title, Deadline, ISBN, Author, Edition, Publisher, Class_ID FROM bookOrder WHERE contact(Title, ISBN, Author, Edition, Publisher) like ?");
+		$stmt = $conn->prepare("SELECT Order_ID, Title, Deadline, ISBN, Author, Edition, Publisher FROM bookOrder WHERE contact(Title, ISBN, Author, Edition, Publisher) like ?");
 		$stmt->bind_param("s", $search);
 		$stmt->execute();
 		$result = $stmt->get_result();
