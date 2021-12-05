@@ -18,6 +18,15 @@
             }
         }
 
+        if(empty($_POST['name'])){
+            $errors['name'] = 'An name is required';
+        } else{
+            $name = $_POST['name'];
+            if(!filter_var($name, FILTER_VALIDATE_EMAIL)){
+                $errors['name'] = 'Email must be a valid name address';
+            }
+        }
+
         if(empty($_POST['password'])){
             $errors['password'] = 'Password is required';
         } else{
