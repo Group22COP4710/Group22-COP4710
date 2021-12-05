@@ -22,31 +22,25 @@
             $errors['name'] = 'An name is required';
         } else{
             $name = $_POST['name'];
-            if(!filter_var($name, FILTER_VALIDATE_EMAIL)){
-                $errors['name'] = 'Email must be a valid name address';
-            }
         }
 
         if(empty($_POST['password'])){
             $errors['password'] = 'Password is required';
         } else{
             $password = $_POST['password'];
-            if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                $errors['email'] = 'Password must follow restrictions';
-            }
         }
 
         if(array_filter($errors)){
             // echo 'errors in form';
         } else {
             // echo 'form is valid';
-            echo $email . " " . $password;
+            // echo $email . " " . $password;
             
             if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
             }
             else{
-                echo 'connect successful';
+                // echo 'connect successful';
                 
                 $sql = "INSERT INTO Users (email, Name, Password, User_Type) VALUES ('$email', '$name', '$password', 'Professor')";
         
