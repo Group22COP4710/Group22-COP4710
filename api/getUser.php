@@ -12,7 +12,7 @@
 	else
 	{
 
-		$result = $conn->query("select * from where User_ID={$uid}");
+		$result = $conn->query("select * from Users where User_ID={$uid}");
 		
 		if ($row = $result->fetch_assoc())
 		{
