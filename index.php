@@ -82,10 +82,6 @@
 	<?php include('pages/login_page.php'); ?>
 
 	<?php include('templates/footer.php'); ?>
-
-	<div class="center">
-		<a href="index.php?hello=true" class="btn">send mail</a>
-	</div>
 	
 
 </html>

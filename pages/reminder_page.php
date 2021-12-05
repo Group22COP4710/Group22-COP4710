@@ -38,34 +38,30 @@
 
 <html>
 <head>
-	<title>COP 4710 Book Order Site</title>
     <link href="../css/styles.css" rel="stylesheet">	
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 </head>
 <body class="grey lighten-4">
-
-	<section class="container grey-text">
-		<h1 class="brand-logo brand-text center">COP 4710 Book Order Site</h1>
-        <hr>
-		<h3 class="brand-logo brand-text center">Create new account</h3>
-
+    
+	<section class="container grey-text" style="display: flex;">
 		<form class="white login-form" action="sign_up_page.php" method="POST">
-			<label>Email</label>
-			<input type="text" name="email" value="">
-			<div class="red-text"><?php echo $errors['email']; ?></div>
-            <label>Password</label>
-			<input type="text" name="password" value="">
-			<div class="red-text"><?php echo $errors['password']; ?></div>
+            <h3 class="brand-logo brand-text center">Set deadline date</h3>
+            <hr style="margin-bottom: 15px; border-top: 3px solid;">
+
+			<label>Deadline date (mm/dd/yyyy)</label>
+			<input type="text" name="deadline" value="">
+			<div class="red-text"><?php echo $errors['deadline']; ?></div>
 
 			<div class="center">
                 <div class="green-text"><?php echo $creation['success']; ?></div>
-				<input type="submit" name="submit" value="Create account" class="btn brand z-depth-0">
-				<br /><br />
+				<input type="submit" name="submit" value="Set deadline" class="btn brand z-depth-0">
+				<br />
+                <br />
 
-				<a href="../index.php" id="sign-up-link">Back to login</a>
 			</div>
 		</form>
+
 	</section>
 
 </body>

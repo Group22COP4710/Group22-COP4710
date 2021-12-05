@@ -36,6 +36,10 @@
 
 <!DOCTYPE html>
 <html>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">  
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 	<section class="grey-text requests-container">
 		
@@ -65,13 +69,60 @@
 			<div class="red-text"><?php echo $errors['ISBN']; ?></div>
 
 			<div class="center">
-				<input type="submit" name="submit" value="Submit" class="btn brand z-depth-0">
+				<input type="submit" name="submit" value="Add to form" class="btn brand z-depth-0">
 			</div>
-		</form>		
+		</form>
 	</section>
 
 	<div class="center">
-		<a href="" class="view-edit-form btn brand z-depth-0" name="book-requests">View/edit request form</a>
+		<a class="waves-effect waves-light btn modal-trigger brand z-depth-0" href="#demo-modal">
+		View/edit request form
+        </a>
 	</div>
+
+	<div class="">
+        <!-- Modal Trigger -->
+        
+  
+        <!-- Modal Structure -->
+        <div id="demo-modal" class="modal">
+            <div class="modal-content grey-text">
+                <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>View/edit request form</strong></h4>
+				<hr>
+
+				<form class="float-left" action="">
+					<h5>Books in current order</h5>
+					<input type="checkbox" id="book1" name="book1" value="book1">
+					<label for="book1"> Calc 3</label><br>
+					<input type="checkbox" id="book2" name="book2" value="book2">
+					<label for="book2"> Bio</label><br>
+					<input type="checkbox" id="book3" name="book3" value="book3">
+					<label for="book3"> English</label><br><br>
+				</form>
+
+            </div>
+  
+            <div class="modal-footer">
+				<a href="#!" style="margin-right: 10px;" class="modal-action 
+                    modal-close waves-effect waves-red 
+                    btn red lighten-1">
+                    Delete form
+                </a>
+
+                <a href="#!" class="modal-action 
+                    modal-close waves-effect 
+                    btn brand lighten-1">
+                    Close
+                </a>
+            </div>
+        </div>
+    </div>
+
+	<script>
+        $(document).ready(function () {
+            $('.modal').modal();
+        }
+        )
+    </script>
 
 </html>

@@ -1,4 +1,49 @@
+<?php 
 
+
+	$email = $password = '';
+	$errors = array('email' => '', 'password' => '');
+	$superAdmin = array('email' => 'demo@ucf.edu', 'password' => 'pass'); 
+
+
+	if(isset($_POST['login'])){
+
+		// check email
+		if(empty($_POST['email'])){
+			$errors['email'] = 'An email is required';
+		} 
+		// else{
+		// 	$email = $_POST['email'];
+		// 	if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+		// 		$errors['email'] = 'Email must be a valid email address';
+		// 	}
+		// }
+
+
+		// check password
+		if(empty($_POST['password'])){
+			$errors['password'] = 'A password is required';
+		}
+		// else{
+		// 	$title = $_POST['password'];
+		// 	if(!preg_match('/^[a-zA-Z\s]+$/', $title)){
+		// 		$errors['password'] = 'Password must be letters and spaces only';
+		// 	}
+		// }
+
+
+		if(array_filter($errors)){
+			echo 'errors in form';
+		} else if ($_POST['email'] == $superAdmin['email'] && $_POST['password'] == $superAdmin['password']) {
+			//echo 'form is valid';
+			header('Location: ../admin_homepage.php');
+		} else {
+			header('Location: ../homepage.php');
+		}
+
+	} // end POST check
+
+?>
 
 <html>
 <head>
@@ -26,15 +71,6 @@
 				<a href="pages/forgot_password_page.php" id="sign-up-link">Forgot password?</a>
 			</div>
 		</form>
-
-		<div id="sign-up-div">
-
-            
-
-            
-        </div>
-
-
 	</section>
 
 </body>
