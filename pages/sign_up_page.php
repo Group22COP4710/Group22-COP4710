@@ -1,7 +1,27 @@
 <?php
-    $email = $password = '';
-    $errors = array('email' => '', 'password' => '');
+    $email = $name = $password = '';
+    $errors = array('email' => '', 'name' => '', 'password' => '');
     $creation = array('success' => '');
+
+    // connect to the database
+	$conn = mysqli_connect('localhost', 'user', 'password', 'final');
+
+	// check connection
+	if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    else{
+        echo 'connect successful';
+        $sql = "INSERT INTO Users (email, Name, Password, User_Type) VALUES ('john@example.com', 'john', 'special', 'Professor')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        
+        mysqli_close($conn);
+    }
 
     if(isset($_POST['submit'])){
         
@@ -54,6 +74,9 @@
 			<label>Email</label>
 			<input type="text" name="email" value="">
 			<div class="red-text"><?php echo $errors['email']; ?></div>
+            <label>Name</label>
+			<input type="text" name="name" value="">
+			<div class="red-text"><?php echo $errors['name']; ?></div>
             <label>Password</label>
 			<input type="text" name="password" value="">
 			<div class="red-text"><?php echo $errors['password']; ?></div>
