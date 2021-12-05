@@ -1,19 +1,21 @@
 <?php
-	$conn = mysqli_connect('localhost', 'user', 'password', 'final');
 
+    $email = $password = '';
+    $errors = array('email' => '', 'password' => '');
+    $creation = array('success' => '');
+
+    // connect to the database
+	$conn = mysqli_connect('localhost', 'user', 'password', 'final');
 
 	// check connection
 	if(!$conn){
 		echo 'Connection error: '. mysqli_connect_error();
 	}
-    	else{
-        	echo 'connect successful';
-    	}
+    else{
+        echo 'connect successful';
+    }
 
-
-    $email = $password = '';
-    $errors = array('email' => '', 'password' => '');
-    $creation = array('success' => '');
+    
 
     if(isset($_POST['submit'])){
         

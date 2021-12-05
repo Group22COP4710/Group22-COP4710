@@ -6,23 +6,6 @@
     // connect to the database
 	$conn = mysqli_connect('localhost', 'user', 'password', 'final');
 
-	// check connection
-	if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-    else{
-        echo 'connect successful';
-        $sql = "INSERT INTO Users (email, Name, Password, User_Type) VALUES ('john@example.com', 'john', 'special', 'Professor')";
-
-        if (mysqli_query($conn, $sql)) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-        
-        mysqli_close($conn);
-    }
-
     if(isset($_POST['submit'])){
         
         // check email
@@ -49,8 +32,24 @@
         } else {
             // echo 'form is valid';
             echo $email . " " . $password;
-            $creation['success'] = 'Account created successfully';
-            // header('Location: index.php');
+            
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            else{
+                echo 'connect successful';
+                
+                $sql = "INSERT INTO Users (email, Name, Password, User_Type) VALUES ('$email', '$name', '$password', 'Professor')";
+        
+                if (mysqli_query($conn, $sql)) {
+                    // echo "New record created successfully";
+                    $creation['success'] = 'Account created successfully';
+                } else {
+                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                }
+                
+                mysqli_close($conn);
+            }
         }	
 
     } // end POST check
