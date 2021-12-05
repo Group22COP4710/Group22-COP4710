@@ -1,4 +1,16 @@
 <?php
+	$conn = mysqli_connect('localhost', 'user', 'password', 'final');
+
+
+	// check connection
+	if(!$conn){
+		echo 'Connection error: '. mysqli_connect_error();
+	}
+    	else{
+        	echo 'connect successful';
+    	}
+
+
     $email = $password = '';
     $errors = array('email' => '', 'password' => '');
     $creation = array('success' => '');
