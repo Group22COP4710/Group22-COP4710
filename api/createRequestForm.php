@@ -12,11 +12,11 @@
 	}
 	else
 	{
-		$result = $conn->query("insert into RequestForms (Sem_ID, User_ID) values ({$semid},{$userid})");
+		$result = $conn->query("INSERT INTO RequestForms (Sem_ID, User_ID) VALUES ({$semid},{$userid})");
 		
 		if ($result)
 		{
-			$query = $conn->query("select Req_ID from RequestForms where Sem_ID = {$semid}, User_ID = {$userid}");
+			$query = $conn->query("SELECT Req_ID FROM RequestForms WHERE Sem_ID = {$semid}, User_ID = {$userid}");
 			if ($row = $query->fetch_assoc())
 			{
 				returnData($row["Req_ID"],$semid,$userid);
