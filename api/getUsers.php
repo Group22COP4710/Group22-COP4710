@@ -2,7 +2,7 @@
 
 	$inData = getRequestInfo();
 
-	$usertype = inData["User_Type"];
+	$usertype = $inData["User_Type"];
 	$searchCount = 0;
 	$retArray = [];
 	
@@ -39,7 +39,6 @@
 		{
 			returnData($retArray, $searchCount);
 		}
-		$stmt->close();
 		$conn->close();
 	}
 	
