@@ -13,9 +13,11 @@ function doLogin()
 	
 	document.getElementById("loginResult").innerHTML = "";
 
-	var tmp = {email:email,Password:Password};
-	var jsonPayload = JSON.stringify( tmp );
-	
+	const jsonPayload = JSON.stringify({
+		'email': email,
+		'Password': Password
+	});
+
 	var url = urlBase + '/login.' + extension;
 
 	var xhr = new XMLHttpRequest();
