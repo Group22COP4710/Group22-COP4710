@@ -57,8 +57,7 @@
 					"User_ID"=>$userid,
 					"Sem_ID"=>$semid,
 					"Order Count"=>$orderCount,
-					"Orders"=>$orders),
-				"Error"=>array("code"=>200));
+					"Orders"=>$orders));
 			
 			array_push($forms, $requestForm);
 			$formCount++;
