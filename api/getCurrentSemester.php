@@ -1,6 +1,5 @@
 <?php
 
-	$inData = getRequestInfo();
 
 	$conn = new mysqli("localhost", "user", "password", "final"); 	
 	if( $conn->connect_error )
@@ -9,7 +8,7 @@
 	}
 	else
 	{
-		$result = $conn->query("select Season, Year, Deadline from Semester where Current = true");
+		$result = $conn->query("SELECT Season, Year, Deadline FROM Semester WHERE Current = true");
 		
 		if ($row = $result->fetch_assoc())
 		{
@@ -20,15 +19,9 @@
 			returnError(500, "No semester found");
 		}
 
-		$stmt->close();
 		$conn->close();
 	}
 	
-	function getRequestInfo()
-	{
-		return json_decode(file_get_contents('php://input'), true);
-	}
-
 	function sendJSON( $obj )
 	{
 		header('Content-type: application/json');
