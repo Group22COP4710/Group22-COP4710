@@ -58,7 +58,7 @@
 
 	<section class="container grey-text">
 		<h1 class="brand-logo brand-text center">COP 4710 Book Order Site</h1>
-		<form class="white login-form" action="">
+		<form id="loginDiv" class="white login-form" action="">
 			<label>Email</label>
 			<input type="text" name="email" value="<?php echo htmlspecialchars($email) ?>">
 			<div class="red-text"><?php echo $errors['email']; ?></div>
@@ -73,6 +73,14 @@
 				<a href="pages/forgot_password_page.php" id="sign-up-link">Forgot password?</a>
 			</div>
 		</form>
+		<script>
+                elem = document.getElementById("loginDiv");
+                elem.onkeyup = function(e){
+                    if(e.keyCode ==13){
+                        doLogin();
+                    }
+                }
+            </script>
 	</section>
 
 </body>
