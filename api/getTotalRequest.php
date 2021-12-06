@@ -2,7 +2,7 @@
 
 	$inData = getRequestInfo();
 
-	$semid = inData["Sem_ID"];
+	$semid = $inData["Sem_ID"];
 	$userid;
 	$reqid;
 	$forms = [];
@@ -47,8 +47,7 @@
 					"Author"=>$orderRow["Author"],
 					"Edition"=>$orderRow["Edition"],
 					"Publisher"=>$orderRow["Publisher"]);
-				$json = json_encode($bookOrder, JSON_FORCE_OBJECT);
-				array_push($orders, $json);
+				array_push($orders, $jbookOrder);
 				$orderCount++;
 			}
 			
@@ -58,18 +57,16 @@
 					"User_ID"=>$userid,
 					"Sem_ID"=>$semid,
 					"Order Count"=>$oderCount,
-					"Orders"=>$bookOrders,),
+					"Orders"=>$bookOrders),
 				"Error"=>array("code"=>200));
 			
-			$json = json_encode($requestForm, JSON_FORCE_OBJECT);
-			array_push($forms, $json);
+			array_push($forms, $requestForm);
 			$formCount++;
 		}
 		
 		
 		returnData($forms, $formCount, $season, $year);
 
-		$stmt->close();
 		$conn->close();
 	}
 	
