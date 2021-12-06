@@ -51,6 +51,7 @@ function doLogin()
 			}
 		};
 		xhr.send(jsonPayload);
+		alert("sent payload");
 	}
 	catch(err)
 	{
