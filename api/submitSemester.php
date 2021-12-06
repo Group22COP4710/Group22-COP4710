@@ -66,8 +66,8 @@
 	{
 		$retValue = array(
 			"data"=>array(
-				"Season"=>{$season},
-				"Year"=>{$year}),
+				"Season"=>$season,
+				"Year"=>$year),
 			"Error"=>array("code"=>200));
 		
 		sendJSON(json_encode($retValue, JSON_FORCE_OBJECT));
