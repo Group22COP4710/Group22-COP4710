@@ -23,7 +23,6 @@
 			returnError(500, "No user found");
 		}
 
-		$stmt->close();
 		$conn->close();
 	}
 	
