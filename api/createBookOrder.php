@@ -59,9 +59,9 @@
 			"data"=>array(
 				"Order_ID"=>$id,
 				"Title"=>$t,
-				"ISBN"=>$i
-				"Author"=>$a
-				"Publisher"=>$p
+				"ISBN"=>$i,
+				"Author"=>$a,
+				"Publisher"=>$p,
 				"Edition"=>$e),
 			"Error"=>array("code"=>200));
 		
