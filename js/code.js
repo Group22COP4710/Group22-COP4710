@@ -11,8 +11,8 @@ function doLogin()
 	firstName = "";
 	lastName = "";
 	
-	var login = document.getElementById("loginName").value;
-	var password = document.getElementById("loginPassword").value;
+	var login = document.getElementById("email").value;
+	var password = document.getElementById("password").value;
 	
 	document.getElementById("loginResult").innerHTML = "";
 
