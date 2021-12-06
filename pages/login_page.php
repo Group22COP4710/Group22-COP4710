@@ -6,10 +6,10 @@
 	$superAdmin = array('email' => 'demo@ucf.edu', 'password' => 'pass'); 
 
 
-	if(isset($_POST['login'])){
+	if(isset($_GET['login'])){
 
 		// check email
-		if(empty($_POST['email'])){
+		if(empty($_GET['email'])){
 			$errors['email'] = 'An email is required';
 		} 
 		// else{
@@ -21,7 +21,7 @@
 
 
 		// check password
-		if(empty($_POST['password'])){
+		if(empty($_GET['password'])){
 			$errors['password'] = 'A password is required';
 		}
 		// else{
@@ -34,11 +34,18 @@
 
 		if(array_filter($errors)){
 			echo 'errors in form';
-		} else if ($_POST['email'] == $superAdmin['email'] && $_POST['password'] == $superAdmin['password']) {
-			//echo 'form is valid';
-			header('Location: ../admin_homepage.php');
-		} else {
-			header('Location: ../homepage.php');
+		} else if  {
+			include('../api/login.php')
+			
+			if ($retVal["User_Type"] == 'Admin' || $retVal["User_Type"] == 'Super_Admin') {
+				header('Location: ../admin_homepage.php');
+			}
+			else if ($retVal["User_Type"] == 'Professor'){
+				header('Location: ../homepage.php');
+			}
+			else {
+				echo 'Login Unsuccessful';	
+			}
 		}
 
 	} // end POST check
@@ -58,7 +65,7 @@
 
 	<section class="container grey-text">
 		<h1 class="brand-logo brand-text center">COP 4710 Book Order Site</h1>
-		<form id="loginDiv" class="white login-form">
+		<form id="loginDiv" class="white login-form" action="login_page.php" method="GET">
 			<label>Email</label>
 			<input type="text" id="email" value="<?php echo htmlspecialchars($email) ?>">
 			<div class="red-text"><?php echo $errors['email']; ?></div>
@@ -66,7 +73,7 @@
 			<input type="text" id="password" value="<?php echo htmlspecialchars($password) ?>">
 			<div class="red-text"><?php echo $errors['password']; ?></div>
 			<div class="center">
-				<input type="button" value="Login" onclick="doLogin();" class="btn brand z-depth-0">
+				<input type="submit" name="login" value="Login" class="btn brand z-depth-0">
 				<br /><br />
 
 				<a href="pages/sign_up_page.php" id="sign-up-link" style="margin-right: 20px;">New here? Sign up</a>
