@@ -2,7 +2,7 @@
 
 	$inData = getRequestInfo();
 
-	$reqid = inData["Req_ID"];
+	$reqid = $inData["Req_ID"];
 	$semid;
 	$userid;
 	$orders = [];
@@ -46,7 +46,6 @@
 			returnError(500, "No forms found");
 		}
 
-		$stmt->close();
 		$conn->close();
 	}
 	
