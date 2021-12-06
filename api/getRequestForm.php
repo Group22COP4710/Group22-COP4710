@@ -16,14 +16,14 @@
 	else
 	{
 
-		$reqForm = $conn->query("select * from RequestForms where Req_ID = {$reqid}");
+		$reqForm = $conn->query("SELECT * FROM RequestForms WHERE Req_ID = {$reqid}");
 		
 		if ($row = $reqForm->fetch_assoc())
 		{
 			$semid = $row["Sem_ID"];
 			$userid = $row["User_ID"];
 			
-			$bookOrders = $conn->query("select * from bookOrder where Req_ID = {$reqid}");
+			$bookOrders = $conn->query("SELECT * FROM bookOrder WHERE Req_ID = {$reqid}");
 			
 			while ($row = $bookOrders->fetch_assoc())
 			{
