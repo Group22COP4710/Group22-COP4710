@@ -80,14 +80,6 @@
 				<a href="pages/forgot_password_page.php" id="sign-up-link">Forgot password?</a>
 			</div>
 		</form>
-		<script>
-                elem = document.getElementById("loginDiv");
-                elem.onkeyup = function(e){
-                    if(e.keyCode ==13){
-                        doLogin();
-                    }
-                }
-            </script>
 	</section>
 
 </body>
