@@ -1,16 +1,13 @@
-var urlBase = '';
+var urlBase = "http://andregr.xyz/api";
 var extension = 'php';
 
-var userId = 0;
-var email = "";
-var Password = "";
+let userId;
+let Name;
+let usrType;
 
 function doLogin()
 {
 	userId = 0;
-	email = "";
-	Password = "";
-	
 	var email = document.getElementById("email").value;
 	var Password = document.getElementById("password").value;
 	
@@ -19,7 +16,7 @@ function doLogin()
 	var tmp = {email:email,Password:Password};
 	var jsonPayload = JSON.stringify( tmp );
 	
-	var url = urlBase + 'api/login.' + extension;
+	var url = urlBase + '/login.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
