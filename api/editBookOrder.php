@@ -22,7 +22,7 @@
 		
 		if ($result)
 		{
-			returnData($oid,$reqid,$title,$ISBN,$author,$publisher,$edition);
+			returnData($oid,$title,$ISBN,$author,$publisher,$edition);
 		}
 		else
 		{
