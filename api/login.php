@@ -8,7 +8,7 @@
 	$conn = new mysqli("localhost", "user", "password", "final"); 	
 	if( $conn->connect_error )
 	{
-		$ret$val =array("Error" => $conn->connect_error );
+		$retVal =array("Error" => $conn->connect_error );
 	}
 	else
 	{
