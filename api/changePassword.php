@@ -18,13 +18,13 @@
 	}
 	else
 	{
-		$result = $conn->query("select Password from Users where User_ID = {$userid}");
+		$result = $conn->query("SELECT Password FROM Users WHERE User_ID = '{$userid}'");
 		
 		if ($row = $result->fetch_assoc())
 		{
 			if ($row["password"] == $oldpass)
 			{
-				$result = $conn->query("update Users set Password = {$newpass} where User_ID = {$userid}");
+				$result = $conn->query("UPDATE Users SET Password = '{$newpass}' WHERE User_ID = {$userid}");
 				returnError(200, "Password successfully changed");
 			}
 			else
