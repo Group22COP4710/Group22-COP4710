@@ -10,8 +10,6 @@ function doLogin()
 	userId = 0;
 	email = "";
 	Password = "";
-
-	alert("we are doing login");
 	
 	var email = document.getElementById("email").value;
 	var Password = document.getElementById("password").value;
@@ -21,7 +19,7 @@ function doLogin()
 	var tmp = {email:email,Password:Password};
 	var jsonPayload = JSON.stringify( tmp );
 	
-	var url = urlBase + '/login.' + extension;
+	var url = urlBase + 'api/login.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
