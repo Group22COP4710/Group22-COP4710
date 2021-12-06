@@ -6,10 +6,10 @@
 	$superAdmin = array('email' => 'demo@ucf.edu', 'password' => 'pass'); 
 
 
-	if(isset($_GET['submit'])){
+	if(isset($_POST['submit'])){
 
 		// check email
-		if(empty($_GET['email'])){
+		if(empty($_POST['email'])){
 			$errors['email'] = 'An email is required';
 		} 
 		// else{
@@ -21,7 +21,7 @@
 
 
 		// check password
-		if(empty($_GET['password'])){
+		if(empty($_POST['password'])){
 			$errors['password'] = 'A password is required';
 		}
 		// else{
@@ -63,7 +63,7 @@
 
 	<section class="container grey-text">
 		<h1 class="brand-logo brand-text center">COP 4710 Book Order Site</h1>
-		<form id="loginDiv" class="white login-form" action="login_page.php" method="GET">
+		<form id="loginDiv" class="white login-form" action="login_page.php" method="POST">
 			<label>Email</label>
 			<input type="text" id="email" value="<?php echo htmlspecialchars($email) ?>">
 			<div class="red-text"><?php echo $errors['email']; ?></div>
