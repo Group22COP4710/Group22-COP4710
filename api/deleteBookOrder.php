@@ -19,7 +19,7 @@
 		}
 		else
 		{
-			returnError(400, "Invalid Request");
+			returnError(500, "Invalid Request");
 		}
 
 		$stmt->close();
