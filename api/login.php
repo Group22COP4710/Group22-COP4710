@@ -5,7 +5,7 @@
 	$password = $_POST["password"];
 	$retVal = [];
 
-	$conn = new mysqli("localhost", "user", "password", "final"); 	
+	$conn = mysqli_connect("localhost", "user", "password", "final"); 	
 	if( $conn->connect_error )
 	{
 		$retVal = array("Error" => $conn->connect_error );
