@@ -1,11 +1,10 @@
 <?php
 
-	$inData = getRequestInfo();
 
-	$email = $inData["email"];
-	$password = $inData["Password"];
-	// $password = $md5($inData["password"]);
-	
+	$email = $_GET["email"];
+	$password = $_GET["Password"];
+	$retVal = [];
+
 	$conn = new mysqli("localhost", "user", "password", "final"); 	
 	if( $conn->connect_error )
 	{
@@ -18,48 +17,23 @@
 		
 		if ($row = $result->fetch_assoc())
 		{
-			returnData($row["User_ID"],$row["Name"],$row["User_Type"]);
+			$retVal = returnData($row["User_ID"],$row["Name"],$row["User_Type"]);
 		}
 		else 
 		{
-			returnError(500, "No user found");
+			$retVal = array("Error"=>"Login Unsuccessful");
 		}
 
-		$stmt->close();
 		$conn->close();
 	}
 	
-	function getRequestInfo()
-	{
-		return json_decode(file_get_contents('php://input'), true);
-	}
-
-	function sendJSON( $obj )
-	{
-		header('Content-type: application/json');
-		echo $obj;
-	}
 	
 	function returnData($id, $name, $type)
 	{
 		$retValue = array(
-			"User"=>array(
 				"User_ID"=>$id,
 				"Name"=>$name,
-				"User_Type"=>$type),
-			"Error"=>array("code"=>200));
-		
-		sendJSON(json_encode($retValue, JSON_FORCE_OBJECT));
-	}
-	
-	function returnError($code, $err )
-	{
-		$retValue = array(
-			"Error"=>array(
-				"code"=>$code,
-				"Message"=>$err));
-		
-		sendJSON(json_encode($retValue,JSON_FORCE_OBJECT));
+				"User_Type"=>$type);
 	}
 	
 ?>
