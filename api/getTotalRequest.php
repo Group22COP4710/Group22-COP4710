@@ -15,7 +15,7 @@
 	}
 	else
 	{
-		$result = $conn->query("select Season, Year from Semesters where Sem_ID={$semid}");
+		$result = $conn->query("SELECT Season, Year FROM Semester WHERE Sem_ID = {$semid}");
 		if ($row = $result->fetch_assoc())
 		{
 			$season = $row["Season"];
@@ -26,7 +26,7 @@
 			returnError(500, "Error Occured");
 		}
 		
-		$reqForm = $conn->query("select * from RequestForms where Sem_ID={$semid}");
+		$reqForm = $conn->query("SELECT * FROM RequestForms WHERE Sem_ID={$semid}");
 		
 		while ($row = $reqForm->fetch_assoc())
 		{
@@ -36,7 +36,7 @@
 			$orders = [];
 			$orderCount = 0;
 			
-			$bookOrders = $conn->query("select * from bookOrder where Req_ID = {$reqid}");
+			$bookOrders = $conn->query("SELECT * FROM bookOrder WHERE Req_ID = {$reqid}");
 			
 			while ($orderRow = $bookOrders->fetch_assoc())
 			{
