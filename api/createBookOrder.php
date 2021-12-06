@@ -17,12 +17,12 @@
 	else
 	{
 		$result = $conn->query("insert into bookOrder (Req_ID,Title,ISBN,Author,Publisher,edition) 
-						values ({$reqid},{$title},{$ISBN},{$author},{$publisher},{$edition})");
+						values ({$reqid},'{$title}','{$ISBN}','{$author}','{$publisher}','{$edition}')");
 		
 		if ($result)
 		{
 			$query = $conn->query("select Order_ID from RequestForms where 
-			Req_ID={$reqid},Title={$title},ISBN={$ISBN},Author={$author},Publisher={$publisher},edition={$edition}");
+			Req_ID={$reqid},Title='{$title}',ISBN='{$ISBN}',Author='{$author}',Publisher='{$publisher}',edition='{$edition}'");
 			
 			if ($row = $query->fetch_assoc())
 			{
