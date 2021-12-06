@@ -37,7 +37,6 @@
 			returnError(500, "Error Occured");
 		}
 
-		$stmt->close();
 		$conn->close();
 	}
 	
