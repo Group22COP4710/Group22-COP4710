@@ -14,7 +14,7 @@
 	else
 	{
 
-		$result = $conn->query("select * from where email='{$email}',Password='{$password}'");
+		$result = $conn->query("select * from Users where email={$email},Password={$password}");
 		
 		if ($row = $result->fetch_assoc())
 		{
