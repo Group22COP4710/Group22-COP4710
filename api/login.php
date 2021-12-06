@@ -1,8 +1,8 @@
 <?php
 
 
-	$email = $_GET["email"];
-	$password = $_GET["password"];
+	$email = $_POST["email"];
+	$password = $_POST["password"];
 	$retVal = [];
 
 	$conn = new mysqli("localhost", "user", "password", "final"); 	
