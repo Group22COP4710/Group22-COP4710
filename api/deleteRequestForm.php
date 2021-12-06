@@ -2,7 +2,7 @@
 
 	$inData = getRequestInfo();
 
-	$reqid = inData["Req_ID"];
+	$reqid = $inData["Req_ID"];
 	
 	$conn = new mysqli("localhost", "user", "password", "final"); 	
 	if( $conn->connect_error )
@@ -30,7 +30,6 @@
 			returnError(500, "Form could not be deleted");
 		}
 
-		$stmt->close();
 		$conn->close();
 	}
 	
