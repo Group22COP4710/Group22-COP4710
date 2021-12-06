@@ -34,7 +34,7 @@
 			"data"=>array(
 				"Season"=>$season,
 				"Year"=>$year,
-				"Deadline"=>$deadline)
+				"Deadline"=>$deadline),
 			"Error"=>array("code"=>200));
 		
 		sendJSON(json_encode($retValue, JSON_FORCE_OBJECT));
