@@ -36,9 +36,9 @@
 			$orders = [];
 			$orderCount = 0;
 			
-			$bookOrders = $conn->query("SELECT * FROM bookOrder WHERE Req_ID = {$reqid}");
+			$ordersResult = $conn->query("SELECT * FROM bookOrder WHERE Req_ID = {$reqid}");
 			
-			while ($orderRow = $bookOrders->fetch_assoc())
+			while ($orderRow = $ordersResult->fetch_assoc())
 			{
 				$bookOrder = array(
 					"Order_ID"=>$orderRow["Order_ID"],
@@ -47,7 +47,7 @@
 					"Author"=>$orderRow["Author"],
 					"Edition"=>$orderRow["Edition"],
 					"Publisher"=>$orderRow["Publisher"]);
-				array_push($orders, $jbookOrder);
+				array_push($orders, $bookOrder);
 				$orderCount++;
 			}
 			
@@ -56,8 +56,8 @@
 					"Req_ID"=>$reqid,
 					"User_ID"=>$userid,
 					"Sem_ID"=>$semid,
-					"Order Count"=>$oderCount,
-					"Orders"=>$bookOrders),
+					"Order Count"=>$orderCount,
+					"Orders"=>$orders),
 				"Error"=>array("code"=>200));
 			
 			array_push($forms, $requestForm);
@@ -81,7 +81,7 @@
 		echo $obj;
 	}
 	
-	function returnData($count, $array, $s, $y)
+	function returnData($array, $count, $s, $y)
 	{
 		$retValue = array(
 			"Season"=>$s,
