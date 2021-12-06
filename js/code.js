@@ -3,20 +3,22 @@ var extension = 'php';
 
 var userId = 0;
 var email = "";
-var password = "";
+var Password = "";
 
 function doLogin()
 {
 	userId = 0;
 	email = "";
-	password = "";
+	Password = "";
+
+	alert("we are doing login");
 	
 	var email = document.getElementById("email").value;
-	var password = document.getElementById("password").value;
+	var Password = document.getElementById("password").value;
 	
 	document.getElementById("loginResult").innerHTML = "";
 
-	var tmp = {email:email,password:password};
+	var tmp = {email:email,Password:Password};
 	var jsonPayload = JSON.stringify( tmp );
 	
 	var url = urlBase + '/login.' + extension;
