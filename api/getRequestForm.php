@@ -34,8 +34,7 @@
 					"Author"=>$row["Author"],
 					"Edition"=>$row["Edition"],
 					"Publisher"=>$row["Publisher"]);
-				$json = json_encode($bookOrder, JSON_FORCE_OBJECT);
-				array_push($orders, $json);
+				array_push($orders, $bookOrder);
 				$orderCount++;
 			}
 			
