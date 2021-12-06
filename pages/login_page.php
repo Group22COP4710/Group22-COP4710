@@ -35,7 +35,7 @@
 		if(array_filter($errors)){
 			echo 'errors in form';
 		} else if  {
-			include('../api/login.php')
+			include('../api/login.php');
 			
 			if ($retVal["User_Type"] == 'Admin' || $retVal["User_Type"] == 'Super_Admin') {
 				header('Location: ../admin_homepage.php');
