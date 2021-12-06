@@ -21,7 +21,7 @@
 		
 		if ($result)
 		{
-			$query = $conn->query("SELECT Order_ID FROM RequestForms WHERE
+			$query = $conn->query("SELECT Order_ID FROM bookOrder WHERE
 			Req_ID={$reqid} AND Title='{$title}' AND ISBN='{$ISBN}' AND Author='{$author}' AND Publisher='{$publisher}' AND Edition='{$edition}'");
 			
 			if ($row = $query->fetch_assoc())
