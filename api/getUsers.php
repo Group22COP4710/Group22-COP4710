@@ -19,17 +19,15 @@
 		}
 		else
 		{
-			$result = $conn->query("select * from  where User_Type = {$usertype}");
+			$result = $conn->query("SELECT * FROM  WHERE User_Type LIKE '{$usertype}'");
 		}
 		
 		while ($row = $result->fetch_assoc())
 		{
-			$rowJSON = json_encode(array(
-					"User_ID"=>$row["User_ID"], "email"=>$row["email"],
-					"Name"=>$row["Name"], "User_Type"=>$row["User_Type"]),
-					JSON_FORCE_OBJECT);
+			$user = array("User_ID"=>$row["User_ID"], "email"=>$row["email"],
+					"Name"=>$row["Name"], "User_Type"=>$row["User_Type"]);
 
-			array_push($retArray, $rowJSON);
+			array_push($retArray, $user);
 			$searchCount++;
 		}
 		
@@ -39,7 +37,7 @@
 		}
 		else
 		{
-			returnData($retArray);
+			returnData($retArray, $searchCount);
 		}
 		$stmt->close();
 		$conn->close();
@@ -56,9 +54,10 @@
 		echo $obj;
 	}
 	
-	function returnData($users)
+	function returnData($users, $count)
 	{
 		$retValue = array(
+			"Users Found"=>$count,
 			"users"=>$users,
 			"Error"=>array("code"=>200));
 		
