@@ -16,9 +16,9 @@
 	}
 	else
 	{
-		$result = $conn->query("UPDATE bookOrder SET (Title,ISBN,Author,Publisher,Edition) 
-						VALUES ('{$title}','{$ISBN}','{$author}','{$publisher}','{$edition}')
-						where Order_ID={$oid}");
+		$result = $conn->query("UPDATE bookOrder SET Title='{$title}',ISBN='{$ISBN}',Author='{$author}',
+							Publisher='{$publisher}',Edition='{$edition}' 
+							WHERE Order_ID={$oid}");
 		
 		if ($result)
 		{
