@@ -7,7 +7,7 @@
 	$ISBN = $inData["ISBN"];
 	$author = $inData["Author"];
 	$publisher = $inData["Publisher"];
-	$edition = $inData["edition"];
+	$edition = $inData["Edition"];
 	
 	$conn = new mysqli("localhost", "user", "password", "final"); 	
 	if( $conn->connect_error )
@@ -16,8 +16,8 @@
 	}
 	else
 	{
-		$result = $conn->query("update bookOrder Set (Title,ISBN,Author,Publisher,edition) 
-						values ({$title},{$ISBN},{$author},{$publisher},{$edition})
+		$result = $conn->query("UPDATE bookOrder SET (Title,ISBN,Author,Publisher,Edition) 
+						VALUES ('{$title}','{$ISBN}','{$author}','{$publisher}','{$edition}')
 						where Order_ID={$oid}");
 		
 		if ($result)
@@ -29,7 +29,6 @@
 			returnError(500, "Invalid Request");
 		}
 
-		$stmt->close();
 		$conn->close();
 	}
 	
@@ -53,7 +52,7 @@
 				"ISBN"=>$i
 				"Author"=>$a
 				"Publisher"=>$p
-				"edition"=>$e),
+				"Edition"=>$e),
 			"Error"=>array("code"=>200));
 		
 		sendJSON(json_encode($retValue, JSON_FORCE_OBJECT));
