@@ -7,7 +7,7 @@
 	$ISBN = $inData["ISBN"];
 	$author = $inData["Author"];
 	$publisher = $inData["Publisher"];
-	$edition = $inData["edition"];
+	$edition = $inData["Edition"];
 	
 	$conn = new mysqli("localhost", "user", "password", "final"); 	
 	if( $conn->connect_error )
@@ -16,13 +16,13 @@
 	}
 	else
 	{
-		$result = $conn->query("insert into bookOrder (Req_ID,Title,ISBN,Author,Publisher,edition) 
-						values ({$reqid},'{$title}','{$ISBN}','{$author}','{$publisher}','{$edition}')");
+		$result = $conn->query("INSERT INTO bookOrder (Req_ID,Title,ISBN,Author,Publisher,Edition) 
+						VALUES ({$reqid},'{$title}','{$ISBN}','{$author}','{$publisher}','{$edition}')");
 		
 		if ($result)
 		{
-			$query = $conn->query("select Order_ID from RequestForms where 
-			Req_ID={$reqid},Title='{$title}',ISBN='{$ISBN}',Author='{$author}',Publisher='{$publisher}',edition='{$edition}'");
+			$query = $conn->query("SELECT Order_ID FROM RequestForms WHERE
+			Req_ID={$reqid} AND Title='{$title}' AND ISBN='{$ISBN}' AND Author='{$author}' AND Publisher='{$publisher}' AND Edition='{$edition}'");
 			
 			if ($row = $query->fetch_assoc())
 			{
@@ -62,7 +62,7 @@
 				"ISBN"=>$i
 				"Author"=>$a
 				"Publisher"=>$p
-				"edition"=>$e),
+				"Edition"=>$e),
 			"Error"=>array("code"=>200));
 		
 		sendJSON(json_encode($retValue, JSON_FORCE_OBJECT));
