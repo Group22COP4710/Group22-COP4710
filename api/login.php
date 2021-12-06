@@ -8,7 +8,7 @@
 	$conn = new mysqli("localhost", "user", "password", "final"); 	
 	if( $conn->connect_error )
 	{
-		$retVal =array("Error" => $conn->connect_error );
+		$retVal = array("Error" => $conn->connect_error );
 	}
 	else
 	{
@@ -30,7 +30,7 @@
 	
 	function returnData($id, $name, $type)
 	{
-		$retValue = array(
+		return $retValue = array(
 				"User_ID"=>$id,
 				"Name"=>$name,
 				"User_Type"=>$type);
