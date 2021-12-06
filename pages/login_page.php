@@ -34,7 +34,7 @@
 
 		if(array_filter($errors)){
 			echo 'errors in form';
-		} else if  {
+		} else {
 			include('../api/login.php');
 			
 			if ($retVal["User_Type"] == 'Admin' || $retVal["User_Type"] == 'Super_Admin') {
@@ -44,7 +44,7 @@
 				header('Location: ../homepage.php');
 			}
 			else {
-				echo 'Login Unsuccessful';	
+				echo $retVal["Error"];	
 			}
 		}
 
