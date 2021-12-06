@@ -58,15 +58,15 @@
 
 	<section class="container grey-text">
 		<h1 class="brand-logo brand-text center">COP 4710 Book Order Site</h1>
-		<form id="loginDiv" class="white login-form" action="">
+		<form id="loginDiv" class="white login-form">
 			<label>Email</label>
-			<input type="text" name="email" value="<?php echo htmlspecialchars($email) ?>">
+			<input type="text" id="email" value="<?php echo htmlspecialchars($email) ?>">
 			<div class="red-text"><?php echo $errors['email']; ?></div>
 			<label>Password</label>
-			<input type="text" name="password" value="<?php echo htmlspecialchars($password) ?>">
+			<input type="text" id="password" value="<?php echo htmlspecialchars($password) ?>">
 			<div class="red-text"><?php echo $errors['password']; ?></div>
 			<div class="center">
-				<input type="button" name="login" value="Login" onclick="doLogin();" class="btn brand z-depth-0">
+				<input type="button" value="Login" onclick="doLogin();" class="btn brand z-depth-0">
 				<br /><br />
 
 				<a href="pages/sign_up_page.php" id="sign-up-link" style="margin-right: 20px;">New here? Sign up</a>
