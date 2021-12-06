@@ -2,7 +2,7 @@
 
 
 	$email = $_GET["email"];
-	$password = $_GET["Password"];
+	$password = $_GET["password"];
 	$retVal = [];
 
 	$conn = new mysqli("localhost", "user", "password", "final"); 	
