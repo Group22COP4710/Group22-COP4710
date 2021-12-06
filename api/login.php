@@ -3,7 +3,7 @@
 	$inData = getRequestInfo();
 
 	$email = $inData["email"];
-	$password = $inData["password"];
+	$password = $inData["Password"];
 	// $password = $md5($inData["password"]);
 	
 	$conn = new mysqli("localhost", "user", "password", "final"); 	
@@ -14,7 +14,7 @@
 	else
 	{
 
-		$result = $conn->query("select * from where email='{$email}',password='{$password}'");
+		$result = $conn->query("select * from where email='{$email}',Password='{$password}'");
 		
 		if ($row = $result->fetch_assoc())
 		{
