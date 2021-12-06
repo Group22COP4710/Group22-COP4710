@@ -16,8 +16,8 @@
 	}
 	else
 	{
-		$result = $conn->query("INSERT INTO bookOrder (Req_ID,Title,ISBN,Author,Publisher,Edition) 
-						VALUES ({$reqid},'{$title}','{$ISBN}','{$author}','{$publisher}','{$edition}')");
+		$result = $conn->query("INSERT INTO bookOrder(Req_ID,Title,ISBN,Author,Publisher,Edition) 
+						VALUES({$reqid},'{$title}','{$ISBN}','{$author}','{$publisher}','{$edition}')");
 		
 		if ($result)
 		{
