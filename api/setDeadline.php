@@ -2,7 +2,7 @@
 
 	$inData = getRequestInfo();
 
-	$deadline = date('Y-m-d',$inData["Deadline"]);
+	$deadline = $inData["Deadline"];
 	
 	$conn = new mysqli("localhost", "user", "password", "final"); 	
 	if( $conn->connect_error )
@@ -11,7 +11,7 @@
 	}
 	else
 	{
-		$result = $conn->query("update Semester SET Deadline = {$deadline} where Current = true");
+		$result = $conn->query("UPDATE Semester SET Deadline = '{$deadline}' WHERE Current = true");
 		
 		if ($result)
 		{
