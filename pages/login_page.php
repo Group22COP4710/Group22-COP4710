@@ -6,7 +6,7 @@
 	$superAdmin = array('email' => 'demo@ucf.edu', 'password' => 'pass'); 
 
 
-	if(isset($_GET['login'])){
+	if(isset($_GET['submit'])){
 
 		// check email
 		if(empty($_GET['email'])){
