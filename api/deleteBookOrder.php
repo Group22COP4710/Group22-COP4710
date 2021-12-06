@@ -11,7 +11,7 @@
 	}
 	else
 	{
-		$result = $conn->query("delete from bookOrder where Order_ID={$oid}");
+		$result = $conn->query("DELETE FROM bookOrder WHERE Order_ID={$oid}");
 		
 		if ($result)
 		{
