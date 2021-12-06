@@ -12,7 +12,7 @@
 	else
 	{
 
-		$result = $conn->query("select * from bookOrder where Order_ID={$oid}");
+		$result = $conn->query("SELECT * FROM bookOrder WHERE Order_ID={$oid}");
 		
 		if ($row = $result->fetch_assoc())
 		{
@@ -23,7 +23,6 @@
 			returnError(500, "No Order found");
 		}
 
-		$stmt->close();
 		$conn->close();
 	}
 	
