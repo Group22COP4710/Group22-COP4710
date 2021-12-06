@@ -18,7 +18,7 @@
 	}
 	else
 	{
-		$result = $conn->query("SELECT Password FROM Users WHERE User_ID = '{$userid}'");
+		$result = $conn->query("SELECT Password FROM Users WHERE User_ID = {$userid}");
 		
 		if ($row = $result->fetch_assoc())
 		{
