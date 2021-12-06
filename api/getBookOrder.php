@@ -2,7 +2,7 @@
 
 	$inData = getRequestInfo();
 
-	$oid = inData["Order_ID"];
+	$oid = $inData["Order_ID"];
 	
 	$conn = new mysqli("localhost", "user", "password", "final"); 	
 	if( $conn->connect_error )
