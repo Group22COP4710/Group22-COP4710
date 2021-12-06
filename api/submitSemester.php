@@ -13,7 +13,7 @@
 	}
 	else
 	{
-		$result = $conn->query("select Season, Year from Semester where Sem_ID = {$semid}");
+		$result = $conn->query("SELECT Season, Year FROM Semester WHERE Sem_ID = {$semid}");
 		
 		if ($row = $result->fetch_assoc())
 		{
@@ -37,10 +37,10 @@
 			returnError(500, "Invalid Request");
 		}
 		
-		$result = $conn->query("update Semester set Current = false where Sem_ID = {$semid}");
+		$result = $conn->query("UPDATE Semester SET Current = false WHERE Sem_ID = {$semid}");
 		if ($result)
 		{
-			$result = conn->query("insert into Semester (Season, Year, Current) values ({$newSeason},{$newYear},true)");
+			$result = conn->query("INSERT INTO Semester (Season, Year, Current) VALUES ('{$newSeason}',{$newYear},true)");
 			returnData($newSeason, $newYear);
 		}
 		else
@@ -48,7 +48,6 @@
 			returnError(500, "Database Error");
 		}
 		
-		$stmt->close();
 		$conn->close();
 	}
 	
