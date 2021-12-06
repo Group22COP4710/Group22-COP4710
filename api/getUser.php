@@ -2,7 +2,7 @@
 
 	$inData = getRequestInfo();
 
-	$uid = inData["User_ID"];
+	$uid = $inData["User_ID"];
 	
 	$conn = new mysqli("localhost", "user", "password", "final"); 	
 	if( $conn->connect_error )
@@ -12,7 +12,7 @@
 	else
 	{
 
-		$result = $conn->query("select * from Users where User_ID={$uid}");
+		$result = $conn->query("SELECT * FROM Users WHERE User_ID={$uid}");
 		
 		if ($row = $result->fetch_assoc())
 		{
