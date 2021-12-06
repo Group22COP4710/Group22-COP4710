@@ -11,12 +11,11 @@
 	}
 	else
 	{
-
-		$result = $conn->query("DELETE FROM RequestForms where Req_ID = {$reqid}");
+		$result = $conn->query("DELETE FROM bookOrder WHERE Req_ID = {$reqid}");
 		
 		if ($result)
 		{
-			$result = $conn->query("DELETE FROM bookOrder where Req_ID = {$reqid}");
+			$result = $conn->query("DELETE FROM RequestForms WHERE Req_ID = {$reqid}");
 			if ($result)
 			{
 				returnError(200, "Deletion succesful");
