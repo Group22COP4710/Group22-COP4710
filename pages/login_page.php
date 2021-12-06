@@ -61,8 +61,6 @@
 </head>
 <body>
 
-	<script type="text/javascript" src="js/code.js"></script>
-
 	<section class="container grey-text">
 		<h1 class="brand-logo brand-text center">COP 4710 Book Order Site</h1>
 		<form id="loginDiv" class="white login-form" action="login_page.php" method="GET">
