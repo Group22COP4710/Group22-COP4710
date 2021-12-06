@@ -15,11 +15,11 @@
 	{
 		if ($usertype == "All")
 		{
-			$result = $conn->query("select * from Users");
+			$result = $conn->query("SELECT * FROM Users");
 		}
 		else
 		{
-			$result = $conn->query("SELECT * FROM  WHERE User_Type LIKE '{$usertype}'");
+			$result = $conn->query("SELECT * FROM Users WHERE User_Type LIKE '{$usertype}'");
 		}
 		
 		while ($row = $result->fetch_assoc())
