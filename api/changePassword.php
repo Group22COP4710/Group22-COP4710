@@ -22,7 +22,7 @@
 		
 		if ($row = $result->fetch_assoc())
 		{
-			if ($row["password"] == $oldpass)
+			if ($row["Password"] == $oldpass)
 			{
 				$result = $conn->query("UPDATE Users SET Password = '{$newpass}' WHERE User_ID = {$userid}");
 				returnError(200, "Password successfully changed");
