@@ -16,7 +16,7 @@
 		
 		if ($result)
 		{
-			$query = $conn->query("SELECT Req_ID FROM RequestForms WHERE Sem_ID = {$semid}, User_ID = {$userid}");
+			$query = $conn->query("SELECT Req_ID FROM RequestForms WHERE Sem_ID = {$semid} AND User_ID = {$userid}");
 			if ($row = $query->fetch_assoc())
 			{
 				returnData($row["Req_ID"],$semid,$userid);
@@ -28,7 +28,7 @@
 		}
 		else
 		{
-			returnError(400, "Request Form not found");
+			returnError(500, "Error occured");
 		}
 
 		$stmt->close();
