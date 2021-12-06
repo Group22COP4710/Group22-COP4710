@@ -40,7 +40,7 @@
 		$result = $conn->query("UPDATE Semester SET Current = false WHERE Sem_ID = {$semid}");
 		if ($result)
 		{
-			$result = conn->query("INSERT INTO Semester (Season, Year, Current) VALUES ('{$newSeason}',{$newYear},true)");
+			$result = $conn->query("INSERT INTO Semester (Season, Year, Current) VALUES ('{$newSeason}',{$newYear},true)");
 			returnData($newSeason, $newYear);
 		}
 		else
