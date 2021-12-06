@@ -54,9 +54,11 @@
 </head>
 <body>
 
+	<script type="text/javascript" src="js/code.js"></script>
+
 	<section class="container grey-text">
 		<h1 class="brand-logo brand-text center">COP 4710 Book Order Site</h1>
-		<form class="white login-form" action="index.php" method="POST">
+		<form class="white login-form" action="">
 			<label>Email</label>
 			<input type="text" name="email" value="<?php echo htmlspecialchars($email) ?>">
 			<div class="red-text"><?php echo $errors['email']; ?></div>
@@ -64,7 +66,7 @@
 			<input type="text" name="password" value="<?php echo htmlspecialchars($password) ?>">
 			<div class="red-text"><?php echo $errors['password']; ?></div>
 			<div class="center">
-				<input type="submit" name="login" value="Login" class="btn brand z-depth-0">
+				<input type="button" name="login" value="Login" onclick="doLogin();" class="btn brand z-depth-0">
 				<br /><br />
 
 				<a href="pages/sign_up_page.php" id="sign-up-link" style="margin-right: 20px;">New here? Sign up</a>

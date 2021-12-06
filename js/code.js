@@ -19,7 +19,7 @@ function doLogin()
 	var tmp = {login:login,password:password};
 	var jsonPayload = JSON.stringify( tmp );
 	
-	var url = urlBase + '/Login.' + extension;
+	var url = urlBase + '/login.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -31,7 +31,7 @@ function doLogin()
 			if (this.readyState == 4 && this.status == 200) 
 			{
 				var jsonObject = JSON.parse( xhr.responseText );
-				userId = jsonObject.id;
+				userId = jsonObject.User_Id;
 		
 				if( userId < 1 )
 				{		
@@ -39,12 +39,15 @@ function doLogin()
 					return;
 				}
 		
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
+				Name = jsonObject.name;
+				usrType = jsonObject.User_Type;
+
 
 				saveCookie();
-	
-				window.location.href = /*admin page url extension*/;
+				if (usrType == "Professor")
+					window.location.href = homepage.php;
+				else
+					window.location.href = admin_homepage.php;
 			}
 		};
 		xhr.send(jsonPayload);
@@ -61,7 +64,7 @@ function saveCookie()
 	var minutes = 20;
 	var date = new Date();
 	date.setTime(date.getTime()+(minutes*60*1000));	
-	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
+	document.cookie = "Name=" + Name + ",User_Id=" + userId + ",User_Type=" + usrType +";expires=" + date.toGMTString();
 }
 
 function readCookie()
@@ -73,15 +76,15 @@ function readCookie()
 	{
 		var thisOne = splits[i].trim();
 		var tokens = thisOne.split("=");
-		if( tokens[0] == "firstName" )
+		if( tokens[0] == "Name" )
 		{
-			firstName = tokens[1];
+			Name = tokens[1];
 		}
-		else if( tokens[0] == "lastName" )
+		else if( tokens[0] == "User_Type" )
 		{
-			lastName = tokens[1];
+			User_Type = tokens[1];
 		}
-		else if( tokens[0] == "userId" )
+		else if( tokens[0] == "User_Id" )
 		{
 			userId = parseInt( tokens[1].trim() );
 		}
