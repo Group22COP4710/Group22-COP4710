@@ -2,21 +2,21 @@ var urlBase = '';
 var extension = 'php';
 
 var userId = 0;
-var firstName = "";
-var lastName = "";
+var email = "";
+var password = "";
 
 function doLogin()
 {
 	userId = 0;
-	firstName = "";
-	lastName = "";
+	email = "";
+	password = "";
 	
-	var login = document.getElementById("email").value;
+	var email = document.getElementById("email").value;
 	var password = document.getElementById("password").value;
 	
 	document.getElementById("loginResult").innerHTML = "";
 
-	var tmp = {login:login,password:password};
+	var tmp = {email:email,password:password};
 	var jsonPayload = JSON.stringify( tmp );
 	
 	var url = urlBase + '/login.' + extension;
@@ -36,6 +36,7 @@ function doLogin()
 				if( userId < 1 )
 				{		
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+					alert("Invalid Username/Password combination");
 					return;
 				}
 		
