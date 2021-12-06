@@ -38,7 +38,6 @@
 			returnError(500, "Invalid Request");
 		}
 
-		$stmt->close();
 		$conn->close();
 	}
 	
