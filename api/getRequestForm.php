@@ -34,6 +34,6 @@
 		mysqli_close($conn);
 	}
 	
-	//header('Location: ../homepage.php');
+	header('Location: ../homepage.php');
 	
 ?>
