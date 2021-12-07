@@ -255,7 +255,7 @@ if(isset($_POST['createAdmin'])){
         <!-- Create Admin Modal Structure -->
         <div id="send-prof-modal" class="modal">
             <div class="modal-content grey-text">
-                <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>Create new admin account</strong></h4>
+                <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>Send professor email</strong></h4>
 				<hr>
 
                 <form class="white login-form" action="../pages/admin_accounts_page.php" method="POST">
@@ -287,7 +287,7 @@ if(isset($_POST['createAdmin'])){
 		 <!-- Send Create Admin Structure -->
 		<div id="create-admin-modal" class="modal">
             <div class="modal-content grey-text">
-                <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>Send professor email</strong></h4>
+                <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>Create admin account</strong></h4>
 				<hr>
 
                 <form class="white login-form" action="admin_accounts_page.php" method="POST">
