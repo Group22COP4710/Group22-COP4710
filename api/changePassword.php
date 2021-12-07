@@ -1,7 +1,7 @@
 <?php
 
 
-	$userid = $_POST["User_ID"];
+	$userid = $_COOKIE["User"]=>"User_ID";
 	$oldpass = $_POST["oldpass"];
 	$newpass = $_POST["newpass"];
 	$retype = $_POST["retypepass"];
@@ -12,13 +12,13 @@
 	{
 		
 		$conn = mysqli_connect("localhost", "user", "password", "final"); 	
-		if( $conn->connect_error )
+		if( $mess = mysqli_connect_error() )
 		{
-			$retVal = $conn->connect_error;
+			$mess = $conn->connect_error;
 		}
 		else if ($newpass != $retype)
 		{
-			$retVal = "Passwords don't match";
+			$mess = "Passwords don't match";
 		}
 		else
 		{
@@ -29,16 +29,16 @@
 				if ($row["Password"] == $oldpass)
 				{
 					$result = mysqli_query($conn, "UPDATE Users SET Password = '{$newpass}' WHERE User_ID = {$userid}");
-					$retVal =  "Password successfully changed";
+					$mess =  "Password successfully changed";
 				}
 				else
 				{
-					$retVal =  "Old password incorrect";
+					$mess =  "Old password incorrect";
 				}
 			}
 			else
 			{	
-				$retVal =  "Error Occured";
+				$mess =  "Error Occured";
 			}
 	
 			$conn->close();
