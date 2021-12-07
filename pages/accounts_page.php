@@ -30,7 +30,7 @@
                 <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>Change Password</strong></h4>
 				<hr>
 
-				<form class="white login-form" action="../api/changePassword.php" method="POST">
+		<form class="white login-form"  action="../api/changePassword.php" method="POST">
                     <label>Old password</label>
                     <input type="text" name="oldpass" value="">
                     <div class="red-text"><?php echo $errors['password']; ?></div>
@@ -40,17 +40,15 @@
                     <label>Retype new password</label>
                     <input type="text" name="retypepass" value="">
                     <div class="red-text"><?php echo $errors['password']; ?></div>
+		    <input type="submit" name="submit" value="Apply" href="#!" style="margin-right: 10px;" class="modal-action 
+                    modal-close waves-effect waves-green 
+                    btn green lighten-1">
                 </form>
 
             </div>
   
             <div class="modal-footer">
-				<a href="#!" style="margin-right: 10px;" class="modal-action 
-                    modal-close waves-effect waves-green 
-                    btn green lighten-1">
-                    Apply changes
-                </a>
-
+				
                 <a href="#!" class="modal-action 
                     modal-close waves-effect 
                     btn brand lighten-1">
