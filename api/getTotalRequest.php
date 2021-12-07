@@ -12,8 +12,8 @@
 	}
 	else
 	{
-		$sql = "SELECT Season, Year FROM Semester WHERE Sem_ID = {$semid}";
-		$result = mysqli_query($conn, $sql);
+// 		$sql = "SELECT Season, Year FROM Semester WHERE Sem_ID = {$semid}";
+// 		$result = mysqli_query($conn, $sql);
 
 		// if ($row = $result->fetch_assoc())
 		// {
@@ -65,6 +65,6 @@
 		}
 		
 		
-
+	}
 	
 ?>
