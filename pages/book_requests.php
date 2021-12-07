@@ -42,12 +42,14 @@
 
 <!DOCTYPE html>
 <html>
+	<?php include('../templates/header.php'); ?>
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">  
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-	<?php include('templates/header.php'); ?>
+	
 
 	<section class="grey-text requests-container">
 		
@@ -145,7 +147,7 @@
         </div>
     </div>
 
-	<?php include('templates/footer.php'); ?>
+	<?php include('../templates/footer.php'); ?>
 
 	<script>
         $(document).ready(function () {
