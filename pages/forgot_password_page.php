@@ -33,7 +33,7 @@
 			else
 			{
 				$temp_password = randomPassword();
-				$sql = "UPDATE users Set Password=$temp_password WHERE email=$email;";
+				$sql = "UPDATE Users Set Password=$temp_password WHERE email=$email;";
 				mysqli_query($conn, $sql);
 				sendMailFunction($email,$temp_password);
 				
