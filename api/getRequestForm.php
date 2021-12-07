@@ -46,4 +46,6 @@
 		mysqli_close($conn);
 	}
 	
+	header('Location: ../homepage.php');
+	
 ?>
