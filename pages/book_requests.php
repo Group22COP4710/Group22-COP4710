@@ -4,7 +4,7 @@
 	$orders = [];
 	$orderCount = 0;
 
-	if ($_POST["view/edit"] == 'View/Edit')
+	if ($_POST["view-edit"] == 'View-Edit')
 	{
 		include('../api/getRequestForm.php');
 	}
@@ -79,7 +79,7 @@
 
 				<form class="float-left" action="../pages/book_requests.php">
 					<label></label>
-                    			<input type="submit" name="View/Edit" value="All">
+                    			<input type="submit" name="View-Edit" value="All">
 					
 					<h5>Books in current order</h5>
 					<input type="checkbox" id="book1" name="book1" value="book1">
