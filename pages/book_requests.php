@@ -101,19 +101,12 @@
 				<form class="float-left" action="../pages/book_requests.php" method="POST">
 					<label></label>
                     			<input type="submit" name="view_edit" value="All">
-					
-					<h5>Books in current order</h5>
-					<input type="checkbox" id="book1" name="book1" value="book1">
-					<label for="book1"> Calc 3</label><br>
-					<input type="checkbox" id="book2" name="book2" value="book2">
-					<label for="book2"> Bio</label><br>
-					<input type="checkbox" id="book3" name="book3" value="book3">
-					<label for="book3"> English</label><br><br>
-				</form>
 
+				</form>
+				<h3>Books in current order</h3>
 				<ul>
                 <?php foreach($orders as $item => $preVal){ ?>
-                    
+                    <input type="checkbox" id="" name="" value="">
                     <?php foreach($preVal as $key => $value){ ?>
 
                         <li><h5>
