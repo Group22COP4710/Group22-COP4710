@@ -1,11 +1,9 @@
 <?php
 
-	$inData = getRequestInfo();
-
-	$oid= $inData["Order_ID"];
+	$oid= $_POST["oiddelete"];
 	
 	$conn = mysqli_connect("localhost", "user", "password", "final"); 	
-	iif(!$conn){
+	if(!$conn){
 		echo 'Connection error: '. mysqli_connect_error();
 	}
 	else
@@ -15,11 +13,7 @@
 		
 		if ($result)
 		{
-			returnError(200, "Delete Successful");
-		}
-		else
-		{
-			// returnError(500, "Invalid Request");
+			echo "Delete Successful";
 		}
 
 		mysqli_close($conn);
