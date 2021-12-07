@@ -1,18 +1,20 @@
 <?php
 
+$age = array("Name"=>"35", "Ben"=>"37", "Joe"=>"43");
 
+$usertype = $_POST["User_Type"];
+$searchCount = 0;
+$retArray = [];
 
-if($_POST['User_Type'] == 'Admin')
+if($_POST['User_Type'] == 'All')
 {
-    $usertype = $_POST["User_Type"];
-    $searchCount = 0;
-	$retArray = [];
+    
     
 
     include('../api/getUsers.php');
 
     echo $searchCount;
-    echo print_r(retArray);
+    print_r($retArray);
 
 }
 
@@ -160,13 +162,29 @@ $creation = array('success' => '');
         <!-- View Admin Modal Structure -->
         <div id="view-admin-modal" class="modal">
             <div class="modal-content grey-text">
-                <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>Admin accounts</strong></h4>
+                <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>Faculty accounts</strong></h4>
 				<hr>
                 <form class="white login-form" action="admin_accounts_page.php" method="POST">
                     <label>Old password</label>
-                    <input type="submit" name="User_Type" value="Admin">
+                    <input type="submit" name="User_Type" value="All">
 
                 </form>
+
+                <ul>
+                <?php foreach($retArray as $secondArray){ ?>
+                    <?php foreach($secondArray as $outputUser){ ?>
+
+                        <li><?php echo "Name: " . $outputUser['name'] . "  -  Email: " . $outputUser['email'] ?></li>
+                
+                    <?php } ?>
+
+                    
+                <?php } ?>
+                </ul>
+                
+
+
+
 
             </div>
   

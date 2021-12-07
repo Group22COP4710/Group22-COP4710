@@ -43,36 +43,4 @@
 		}
 		mysqli_close($conn);
 	}
-	
-// 	function getRequestInfo()
-// 	{
-// 		return json_decode(file_get_contents('php://input'), true);
-// 	}
-
-// 	function sendJSON( $obj )
-// 	{
-// 		header('Content-type: application/json');
-// 		echo $obj;
-// 	}
-	
-// 	function returnData($users, $count)
-// 	{
-// 		$retValue = array(
-// 			"Users Found"=>$count,
-// 			"users"=>$users,
-// 			"Error"=>array("code"=>200));
-		
-// 		sendJSON(json_encode($retValue, JSON_FORCE_OBJECT));
-// 	}
-	
-// 	function returnError($code, $err )
-// 	{
-// 		$retValue = array(
-// 			"Error"=>array(
-// 				"code"=>$code,
-// 				"Message"=>$err));
-		
-// 		sendJSON(json_encode($retValue,JSON_FORCE_OBJECT));
-// 	}
-	
-// ?>
+ ?>
