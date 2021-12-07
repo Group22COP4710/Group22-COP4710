@@ -1,8 +1,7 @@
 <?php
 
 	// $inData = getRequestInfo();
-
-	$reqid = $_POST["Req_ID"];
+	$reqid = $_COOKIE["Req_ID"];
 	$title = $_POST["Title"];
 	$ISBN = $_POST["ISBN"];
 	$author = $_POST["Author"];
@@ -15,12 +14,16 @@
 	}
 	else
 	{
+		
 		$sql = "INSERT INTO bookOrder(Req_ID,Title,ISBN,Author,Publisher,Edition) 
 		VALUES({$reqid},'{$title}','{$ISBN}','{$author}','{$publisher}','{$edition}')";
 		$result = mysqli_query($conn, $sql);
 		
 		if ($result)
 		{
+			echo 'Request Form updated';
+			
+			/*
 			$sql = "SELECT Order_ID FROM bookOrder WHERE
 			Req_ID={$reqid} AND Title='{$title}' AND ISBN='{$ISBN}' AND Author='{$author}' AND Publisher='{$publisher}' AND Edition='{$edition}'";
 			$query = mysqli_query($conn, $sql);
@@ -32,10 +35,11 @@
 			else
 			{
 				//returnError(500, "Error Occured");
-			}
+			}*/
 		}
 		else
-		{
+		{	
+			echo 'Database Error';
 			//returnError(500, "Invalid Request");
 		}
 
