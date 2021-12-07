@@ -1,4 +1,5 @@
 <?php
+	include('../api/getCurrentSemester.php');
 	setcookie("Sem_ID",$semester["Sem_ID"], time()+3600, '/');
 	setcookie("Year",$semester["Year"], time()+3600, '/');
 	setcookie("Deadline",$semester["Deadline"], time()+3600, '/');
