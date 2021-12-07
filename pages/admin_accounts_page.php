@@ -163,7 +163,8 @@ $creation = array('success' => '');
                 <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>Faculty accounts</strong></h4>
 				<hr>
                 <form class="login-form" action="admin_accounts_page.php" method="POST">
-                    <input type="submit" name="User_Type" value="View all">
+			<label></label>
+                    <input type="submit" name="User_Type" value="All">
 
                 </form>
 
