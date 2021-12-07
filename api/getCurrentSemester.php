@@ -1,6 +1,6 @@
 <?php
 
-	$retVal = [];
+	$semester = [];
 
 	$conn = mysqli_connect("localhost", "user", "password", "final"); 	
 	if( $error = mysqli_connect_error() )
@@ -13,11 +13,11 @@
 		
 		if ($row = mysqli_fetch_assoc($result))
 		{
-			$retVal = returnData($row["Season"], $row["Year"],$row["Deadline"]);
+			$semester = returnData($row["Season"], $row["Year"],$row["Deadline"]);
 		}
 		else
 		{
-			$retVal = array("Error"=>"No semester found");
+			$semester = array("Error"=>"No semester found");
 		}
 
 		$conn->close();
@@ -26,7 +26,7 @@
 	
 	function returnData($season, $year, $deadline)
 	{
-		return $retValue = array(
+		return  array(
 			"Season"=>$season,
 			"Year"=>$year,
 			"Deadline"=>$deadline
