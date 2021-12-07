@@ -30,7 +30,7 @@
                 <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>Change Password</strong></h4>
 				<hr>
 
-		<form class="white login-form"  action="/accounts_page.php" method="POST">
+		<form class="white login-form"  action="../pages/accounts_page.php" method="POST">
                     <label>Old password</label>
                     <input type="text" name="oldpass" value="">
                     <div class="red-text"><?php echo $errors['password']; ?></div>
