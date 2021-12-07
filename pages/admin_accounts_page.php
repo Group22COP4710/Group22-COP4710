@@ -18,6 +18,11 @@ if($_POST['User_Type'] == 'All')
 
 }
 
+if(isset($_POST['adminID_Delete']))
+{
+    include('../api/deleteAdmin.php');
+}
+
 $email = $name = $password = '';
 $errors = array('email' => '', 'name' => '', 'password' => '');
 $creation = array('success' => '');
@@ -214,8 +219,15 @@ if(isset($_POST['createAdmin'])){
                 <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>Faculty accounts</strong></h4>
 				<hr>
                 <form class="login-form" action="admin_accounts_page.php" method="POST">
-			<label></label>
-                    <input type="submit" name="User_Type" value="All">
+
+                <label>Enter Admin ID to Delete</label>
+				<input type="text" name="adminID_Delete" value="">
+				<div class="center">
+				<input type="submit" name="adminDelete" value="Delete Admin" class="btn brand z-depth-0">
+				</div>
+
+			    <label></label>
+                <input type="submit" name="User_Type" value="All">
 
                 </form>
 
