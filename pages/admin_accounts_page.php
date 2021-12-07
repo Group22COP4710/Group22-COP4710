@@ -75,6 +75,46 @@ if(isset($_POST['createAdmin'])){
 
 } // end POST check
 
+
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\SMTP;
+	use PHPMailer\PHPMailer\Exception;
+	require 'phpmailer/vendor/autoload.php';
+	
+	function sendMailFunction() {
+		$mail = new PHPMailer();
+		
+		try {
+			$mail->isSMTP();
+			$mail->Host = 'smtp.gmail.com';
+			$mail->SMTPAuth = true;
+			$mail->Port = 587;
+
+			$mail->Username = 'Group22COP4710@gmail.com';
+			$mail->Password = 'c9ikDm0xHRk84Ad7';
+		
+			$mail->setFrom('info@Group22.com', 'UCF');
+
+			$mail->addAddress($_POST['profemail']);     
+
+		
+			$mail->isHTML(true);                                  
+			$mail->Subject = 'Reminder to submit book orders';
+			$mail->Body    = "Book orders are due on {$_COOKIE['Deadline']}, log on or sign up at andregr.xyz/index.php to submit. <br />";
+		
+			$mail->send();
+			echo 'Message has been sent';
+		} catch (Exception $e) {
+			echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+		}
+
+
+  	}
+
+
+	if (isset($_POST['profEmail'])) {
+		sendMailFunction();
+	}
 ?>
 
 <!DOCTYPE html>
@@ -115,6 +155,14 @@ if(isset($_POST['createAdmin'])){
                 <div class="center">
                     <a class="waves-effect waves-light btn modal-trigger brand z-depth-0" href="#create-admin-modal">
                     Create new admin account
+                    </a>
+                </div>
+		
+		<br />
+
+                <div class="center">
+                    <a class="waves-effect waves-light btn modal-trigger brand z-depth-0" href="#send-prof-modal">
+                    Send Professor Reminder
                     </a>
                 </div>
             </form>
@@ -205,9 +253,41 @@ if(isset($_POST['createAdmin'])){
         </div>
 
         <!-- Create Admin Modal Structure -->
-        <div id="create-admin-modal" class="modal">
+        <div id="send-prof-modal" class="modal">
             <div class="modal-content grey-text">
                 <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>Create new admin account</strong></h4>
+				<hr>
+
+                <form class="white login-form" action="../pages/admin_accounts_page.php" method="POST">
+                    <label>Email</label>
+                    <input type="text" name="profemail" value="">
+                    <div class="red-text"><?php echo $errors['email']; ?></div>
+
+                    <div class="center">
+                        <div class="green-text"><?php echo $creation['success']; ?></div>
+                    </div>
+
+                    <div class="modal-footer">
+                        
+                        <input type="submit" name="profEmail" value="Professor Email" class="btn brand z-depth-0">
+        
+
+                        <a href="#!" class="modal-action 
+                            modal-close waves-effect 
+                            btn brand lighten-1">
+                            Close
+                        </a>
+                    </div>
+                </form>
+            </div>
+  
+            
+        </div>
+		
+		 <!-- Send Create Admin Structure -->
+		<div id="create-admin-modal" class="modal">
+            <div class="modal-content grey-text">
+                <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>Send professor email</strong></h4>
 				<hr>
 
                 <form class="white login-form" action="admin_accounts_page.php" method="POST">
