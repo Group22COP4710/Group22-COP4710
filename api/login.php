@@ -13,9 +13,9 @@
 	else
 	{
 
-		$result = $conn->query("SELECT * FROM Users WHERE email= '{$email}' AND Password= '{$password}'");
+		$result = mysql_query($conn, "SELECT * FROM Users WHERE email= '{$email}' AND Password= '{$password}'");
 		
-		if ($row = $result->fetch_assoc())
+		if ($row = $result_fetch_assoc())
 		{
 			$retVal = returnData($row["User_ID"],$row["Name"],$row["User_Type"]);
 		}
