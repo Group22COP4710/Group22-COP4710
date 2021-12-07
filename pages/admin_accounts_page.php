@@ -1,10 +1,15 @@
 <?php
 
-$age = array("Name"=>"35", "Ben"=>"37", "Joe"=>"43");
+// $age = [[ "User_Id" => 1, "email" => "test@test.com", "Name" => "fakeName", "User_Type" => "Super_Admin" ], [ "User_Id" => 2, "email" => "test@test.com", "Name" => "fakeName", "User_Type" => "Super_Admin" ]];
 
 $usertype = $_POST["User_Type"];
 $searchCount = 0;
 $retArray = [];
+
+foreach($age as $newAge => $value)
+{
+    echo $newAge . '  ' . $value . '<br/>';
+}
 
 if($_POST['User_Type'] == 'All')
 {
@@ -13,8 +18,8 @@ if($_POST['User_Type'] == 'All')
 
     include('../api/getUsers.php');
 
-    echo $searchCount;
-    print_r($retArray);
+    // echo $searchCount;
+    // print_r($retArray);
 
 }
 
@@ -159,26 +164,31 @@ $creation = array('success' => '');
             </div>
         </div>
 
-        <!-- View Admin Modal Structure -->
+        <!-- View Faculty Modal Structure -->
         <div id="view-admin-modal" class="modal">
             <div class="modal-content grey-text">
                 <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>Faculty accounts</strong></h4>
 				<hr>
                 <form class="white login-form" action="admin_accounts_page.php" method="POST">
-                    <label>Old password</label>
+                    <label></label>
                     <input type="submit" name="User_Type" value="All">
 
                 </form>
 
                 <ul>
-                <?php foreach($retArray as $secondArray){ ?>
-                    <?php foreach($secondArray as $outputUser){ ?>
+                <?php foreach($retArray as $item => $preVal){ ?>
+                    
+                    <?php foreach($preVal as $key => $value){ ?>
 
-                        <li><?php echo "Name: " . $outputUser['name'] . "  -  Email: " . $outputUser['email'] ?></li>
-                
+                        <li><h5>
+                        <?php
+                            echo $key . ": ";
+                            echo $value; ?>
+                        <h5></li>
+
                     <?php } ?>
 
-                    
+                    <?php echo '<br/>'; ?>
                 <?php } ?>
                 </ul>
                 
@@ -249,6 +259,6 @@ $creation = array('success' => '');
         )
     </script>
 
-	<?php include('../templates/footer.php'); ?>
+	<?php include('templates/footer.php'); ?>
 
 </html>
