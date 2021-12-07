@@ -4,18 +4,8 @@
 	$errors = array('title' => '', 'authors' => '', 'edition' => '', 'publisher' => '', 'ISBN' => '');
 
 	if(isset($_POST['submit'])){
-		
-		// check email
-		if(empty($_POST['email'])){
-			$errors['email'] = 'An email is required';
-		} else{
-			$email = $_POST['email'];
-			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-				$errors['email'] = 'Email must be a valid email address';
-			}
-		}
 
-		// check title
+		/*
 		if(empty($_POST['title'])){
 			$errors['title'] = 'A title is required';
 		} else{
@@ -23,10 +13,8 @@
 			if(!preg_match('/^[a-zA-Z\s]+$/', $title)){
 				$errors['title'] = 'Title must be letters and spaces only';
 			}
-		}
-
-		echo $email;
-		echo $title;
+		}*/
+		include("../api/createBookOrder.php");
 
 	} // end POST check
 
@@ -49,23 +37,23 @@
 			<br />
 
 			<label>Book Title</label>
-			<input type="text" name="email" value="<?php echo htmlspecialchars($title) ?>">
+			<input type="text" name="title" value="">
 			<div class="red-text"><?php echo $errors['title']; ?></div>
 
 			<label>Authors Name(s)</label>
-			<input type="text" name="authors" value="<?php echo htmlspecialchars($authors) ?>">
+			<input type="text" name="authors" value="">
 			<div class="red-text"><?php echo $errors['authors']; ?></div>
 
 			<label>Book edition</label>
-			<input type="text" name="edition" value="<?php echo htmlspecialchars($edition) ?>">
+			<input type="text" name="edition" value="">
 			<div class="red-text"><?php echo $errors['edition']; ?></div>
 
 			<label>Publisher</label>
-			<input type="text" name="publisher" value="<?php echo htmlspecialchars($publisher) ?>">
+			<input type="text" name="publisher" value="">
 			<div class="red-text"><?php echo $errors['publisher']; ?></div>
 
 			<label>ISBN</label>
-			<input type="text" name="ISBN" value="<?php echo htmlspecialchars($ISBN) ?>">
+			<input type="text" name="ISBN" value="">
 			<div class="red-text"><?php echo $errors['ISBN']; ?></div>
 
 			<div class="center">
