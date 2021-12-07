@@ -1,7 +1,5 @@
 <?php
 
-$age = array("Name"=>"35", "Ben"=>"37", "Joe"=>"43");
-
 $usertype = $_POST["User_Type"];
 $searchCount = 0;
 $retArray = [];
@@ -171,12 +169,10 @@ $creation = array('success' => '');
                 </form>
 
                 <ul>
-                <?php foreach($retArray as $secondArray){ ?>
-                    <?php foreach($secondArray as $outputUser){ ?>
+                <?php foreach($retArray as $outputUser){ ?>
 
                         <li><?php echo "Name: " . $outputUser['name'] . "  -  Email: " . $outputUser['email'] ?></li>
                 
-                    <?php } ?>
 
                     
                 <?php } ?>
