@@ -26,16 +26,32 @@
         if(array_filter($errors)){
 			// echo 'errors in form';
 		} else {
+			$conn = mysqli_connect('localhost', 'user', 'password', 'final');
+			if(!$conn){
+				echo 'Connection error: '. mysqli_connect_error();
+			}
+			else
+			{
+				$temp_password = randomPassword();
+				$sql = "UPDATE users Set Password='$temp_password' WHERE email='$email';";
+				mysqli_query($conn, $sql);
+				sendMailFunction($email,$temp_password);
+				
+				
+				mysqli_close($conn);
+			}
+		
+
 			// echo 'form is valid';
             // echo $email;
-            sendMailFunction($email);
+            
 			// header('Location: index.php');
 		}	
 
 	} // end POST check
 	
 	//Create an instance; passing `true` enables exceptions
-	function sendMailFunction($resetEmail) {
+	function sendMailFunction($resetEmail, $temp_password) {
 		$mail = new PHPMailer();
 		
 		try {
@@ -54,7 +70,7 @@
             // $mail->addAddress('fecen71933@sinagalore.com');     //Add a recipient
             $mail->addAddress($resetEmail);     //Add a recipient
 
-            $temp_password = randomPassword();
+            
             $body_content = 'Hello there we have sent you a new temporary password. <br />Do not forget to reset your password after logging in. <br />Temporary password: ' . $temp_password . '<br />';
             
 
