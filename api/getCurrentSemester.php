@@ -9,11 +9,11 @@
 	}
 	else
 	{
-		$result = mysqli_query($conn, "SELECT Season, Year, Deadline FROM Semester WHERE Current = true");
+		$result = mysqli_query($conn, "SELECT Season, Year, Deadline, Sem_ID FROM Semester WHERE Current = true");
 		
 		if ($row = mysqli_fetch_assoc($result))
 		{
-			$semester = returnData($row["Season"], $row["Year"],$row["Deadline"]);
+			$semester = returnData($row["Season"], $row["Year"],$row["Deadline"],$row["Sem_ID"]);
 		}
 		else
 		{
@@ -24,12 +24,13 @@
 	}
 	
 	
-	function returnData($season, $year, $deadline)
+	function returnData($season, $year, $deadline,$id)
 	{
 		return  array(
 			"Season"=>$season,
 			"Year"=>$year,
-			"Deadline"=>$deadline
+			"Deadline"=>$deadline,
+			"Sem_ID" => $id
 		);
 	}
 	
