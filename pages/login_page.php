@@ -65,10 +65,10 @@
 		<h1 class="brand-logo brand-text center">COP 4710 Book Order Site</h1>
 		<form class="white login-form" action="login_page.php" method="POST">
 			<label>Email</label>
-			<input type="text" id="email" value="<?php echo htmlspecialchars($email) ?>">
+			<input type="text" id="email" value="">
 			<div class="red-text"><?php echo $errors['email']; ?></div>
 			<label>Password</label>
-			<input type="text" id="password" value="<?php echo htmlspecialchars($password) ?>">
+			<input type="text" id="password" value="">
 			<div class="red-text"><?php echo $errors['password']; ?></div>
 			<div class="center">
 				<input type="submit" name="submit" value="login" class="btn brand z-depth-0">
