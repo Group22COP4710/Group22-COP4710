@@ -9,12 +9,11 @@
 		$deadlineStatus = $_COOKIE['Deadline'];
 	}
 
-    $forms = [];
-	$formCount = 0;
+    $orders = [];
     if(isset($_POST['view_all_orders']))
     {
         include('../api/getTotalRequest.php');
-        print_r($forms['Orders']);
+        print_r($orders);
     }
 
     
@@ -93,7 +92,7 @@
 				</form>
 				<h3>All book orders</h3>
 				<ul>
-                <?php foreach($forms as $item => $preVal){ ?>
+                <?php foreach($orders as $item => $preVal){ ?>
                     <?php foreach($preVal as $key => $value){ ?>
 
                         <li><h5>
