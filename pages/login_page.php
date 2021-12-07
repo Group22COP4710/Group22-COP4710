@@ -53,6 +53,7 @@
 			}
 			else {
 				echo $retVal["Error"];	
+				header('Location: ../index.php');
 			}
 		}
 
