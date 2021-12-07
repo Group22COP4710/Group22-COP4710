@@ -63,7 +63,7 @@
 			<h4 class="center">Add new book request</h4>
 			<hr />
 			<br />
-
+			<label>Current Deadline: <p><?php echo $_COOKIE['Deadline'];?></p><label>
 			<label>Book Title</label>
 			<input type="text" name="title" value="">
 			<div class="red-text"><?php echo $errors['title']; ?></div>
