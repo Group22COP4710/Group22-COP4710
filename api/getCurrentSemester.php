@@ -17,17 +17,12 @@
 		}
 		else
 		{
-			$retVal => array("Error"=>"No semester found");
+			$retVal => array("Error"="No semester found");
 		}
 
 		$conn->close();
 	}
 	
-	// function sendJSON( $obj )
-	// {
-	// 	header('Content-type: application/json');
-	// 	echo $obj;
-	// }
 	
 	function returnData($season, $year, $deadline)
 	{
@@ -38,14 +33,5 @@
 		);
 	}
 	
-	// function returnError($code, $err )
-	// {
-	// 	$retValue = array(
-	// 		"Error"=>array(
-	// 			"code"=>$code,
-	// 			"Message"=>$err));
-		
-	// 	sendJSON(json_encode($retValue, JSON_FORCE_OBJECT));
-	// }
 	
 ?>
