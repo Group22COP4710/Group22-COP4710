@@ -4,10 +4,15 @@
 	$orders = [];
 	$orderCount = 0;
 
-	if (isset($_POST["view-edit"]))
+	if (isset($_POST['view-edit']))
 	{
 		include('../api/getRequestForm.php');
 		print_r($orders);
+		echo $orders;
+		
+		foreach($orders as $item => $preVal){
+			echo $item . '   ' . $preVal;	
+		}
 	}
 
 	$title = $authors = $edition = $publisher = $ISBN = '';
