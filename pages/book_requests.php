@@ -13,7 +13,11 @@
 		}
 		else
 		{
-			echo "Request Form not found";	
+			mysqli_query($conn, "INSERT INTO RequestForms (Sem_ID, User_ID) VALUES ({$_COOKIE['Sem_ID']},{$_COOKIE['User_ID']})";
+			
+			$result = mysqli_query($conn, "SELECT Req_ID FROM RequestForms WHERE User_ID = {$_COOKIE['User_ID']} AND Sem_ID = {$_COOKIE['Sem_ID']}");
+			$row = mysqli_fetch_assoc($result);
+			setcookie("Req_ID",$row["Req_ID"],time()+3600 , '/' );	
 		}
 	}
 
