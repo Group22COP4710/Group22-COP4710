@@ -4,8 +4,13 @@
 	setcookie("Year",$semester["Year"], time()+3600, '/');
 	setcookie("Deadline",$semester["Deadline"], time()+3600, '/');
 	setcookie("Season",$semester["Season"], time()+3600, '/');
+	
 
-	if ($_COOKIE["Deadline"] == null)
+	if ($deadlineStatus != "Not Set" || $deadlineStatus != null)
+	{
+		continue;
+	}
+	else if ($_COOKIE["Deadline"] == null)
 	{
 		$deadlineStatus = "Not set";	
 	}
