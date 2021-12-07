@@ -13,10 +13,10 @@
     if(isset($_POST['view_all_orders']))
     {
         include('../api/getTotalRequest.php');
-        print_r($orders);
+        // print_r($orders);
     }
 
-    if(isset($_POST['finalize']))
+    if(isset($_POST['Finalize Orders']))
     {
 	include('../api/sumbitSemester.php');    
     }
