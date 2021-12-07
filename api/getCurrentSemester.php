@@ -17,7 +17,7 @@
 		}
 		else
 		{
-			$retVal => array("Error"="No semester found");
+			$retVal = array("Error"=>"No semester found");
 		}
 
 		$conn->close();
