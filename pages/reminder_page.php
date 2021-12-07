@@ -1,43 +1,25 @@
 <?php
+	setcookie("Sem_ID",$semester["Sem_ID"], time()+3600, '/');
+	setcookie("Year",$semester["Year"], time()+3600, '/');
+	setcookie("Deadline",$semester["Deadline"], time()+3600, '/');
+	setcookie("Season",$semester["Season"], time()+3600, '/');
 
-    $email = $password = '';
-    $errors = array('email' => '', 'password' => '');
-    $creation = array('success' => '');
-
-    // connect to the database
-	$conn = mysqli_connect('localhost', 'user', 'password', 'final');
-
-	// check connection
-	if(!$conn){
-		echo 'Connection error: '. mysqli_connect_error();
+	if ($_COOKIE["Deadline"] == null)
+	{
+		$deadlineStatus = "Not set";	
 	}
-    else{
-        echo 'connect successful';
-    }
+	else
+	{
+		$originalDate = "2010-03-21";
+		$deadlineStatus = date("d-m-Y", strtotime($originalDate));
+	}
 
     
 
     if(isset($_POST['submit'])){
         
-        // check email
-        if(empty($_POST['email'])){
-            $errors['email'] = 'An email is required';
-        } else{
-            $email = $_POST['email'];
-            if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                $errors['email'] = 'Email must be a valid email address';
-            }
-        }
-
-        if(array_filter($errors)){
-            // echo 'errors in form';
-        } else {
-            // echo 'form is valid';
-            echo $email . " " . $password;
-            $creation['success'] = 'Account created successfully';
-            // header('Location: index.php');
-        }	
-
+       include('../api/setDeadline.php');
+	    
     } // end POST check
 ?>
 
@@ -52,10 +34,10 @@
 <body class="">
     
 	<section class="container grey-text" style="display: flex;">
-		<form class="white login-form" action="sign_up_page.php" method="POST">
+		<form class="white login-form" action="../reminder_page.php" method="POST">
             <h3 class="brand-logo brand-text center">Set deadline date</h3>
             <hr style="margin-bottom: 15px; border-top: 3px solid;">
-
+			<label>Current Deadline: <p><?php echo $deadlineStatus;?></p>
 			<label>Deadline date (mm/dd/yyyy)</label>
 			<input type="text" name="deadline" value="">
 			<div class="red-text"><?php echo $errors['deadline']; ?></div>
