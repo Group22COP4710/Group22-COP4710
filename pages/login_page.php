@@ -36,6 +36,10 @@
 			echo 'errors in form';
 		} else {
 			include('../api/login.php');
+			include('../api/getCurrentSemester.php');
+			
+			setcookie("User",$retVal);
+			setcookie("Semester",$semester);
 			
 			if ($retVal["User_Type"] == 'Admin' || $retVal["User_Type"] == 'Super_Admin') {
 				header('Location: ../admin_homepage.php');
