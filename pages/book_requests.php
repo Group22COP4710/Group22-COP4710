@@ -4,15 +4,12 @@
 	$orders = [];
 	$orderCount = 0;
 
-	if (isset($_POST['view-edit']))
+	if (isset($_POST['view_edit']))
 	{
 		include('../api/getRequestForm.php');
 		print_r($orders);
-		echo $orders;
-		
-		foreach($orders as $item => $preVal){
-			echo $item . '   ' . $preVal;	
-		}
+
+
 	}
 
 	$title = $authors = $edition = $publisher = $ISBN = '';
@@ -83,9 +80,9 @@
                 <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>View/edit request form</strong></h4>
 				<hr>
 
-				<form class="float-left" action="../pages/book_requests.php" method="POST">
+				<form class="float-left" action="../homepage.php" method="POST">
 					<label></label>
-                    			<input type="submit" name="view-edit" value="All">
+                    			<input type="submit" name="view_edit" value="All">
 					
 					<h5>Books in current order</h5>
 					<input type="checkbox" id="book1" name="book1" value="book1">
