@@ -34,7 +34,7 @@
 <body class="">
     
 	<section class="container grey-text" style="display: flex;">
-		<form class="white login-form" action="../reminder_page.php" method="POST">
+		<form class="white login-form" action="../pages/reminder_page.php" method="POST">
             <h3 class="brand-logo brand-text center">Set deadline date</h3>
             <hr style="margin-bottom: 15px; border-top: 3px solid;">
 			<label>Current Deadline: <p><?php echo $deadlineStatus;?></p>
