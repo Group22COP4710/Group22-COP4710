@@ -12,7 +12,7 @@ if($_POST['User_Type'] == 'Admin')
     include('../api/getUsers.php');
 
     echo $searchCount;
-    print_r(retArray);
+    print_r($retArray);
 
 }
 
