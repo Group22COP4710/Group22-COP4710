@@ -18,7 +18,7 @@
 
     if(isset($_POST['finalize']))
     {
-	include('../api/sumbitSemester.php');    
+	include('../api/submitSemester.php');    
     }
 
     if(isset($_POST['submit'])){
