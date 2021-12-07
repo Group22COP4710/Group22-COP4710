@@ -1,5 +1,21 @@
 <?php 
 
+	$conn = mysqli_connect("localhost", "user", "password", "final"); 	
+	if(!$conn){
+		echo 'Connection error: '. mysqli_connect_error();
+	}
+	else
+	{
+		$result = mysqli_query($conn, "SELECT Req_ID FROM RequestForms WHERE User_ID = {$_COOKIE['User_ID']} AND Sem_ID = {$_COOKIE['Sem_ID']}");
+		if ($row = mysqli_fetch_assoc($result))
+		{
+			setcookie("Req_ID",$row["Req_ID"],time()+3600 , '/' );	
+		}
+		else
+		{
+			echo "Request Form not found";	
+		}
+	}
 
 	$orders = [];
 	$orderCount = 0;
@@ -30,6 +46,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+	<?php include('templates/header.php'); ?>
 
 	<section class="grey-text requests-container">
 		
@@ -126,6 +144,8 @@
             </div>
         </div>
     </div>
+
+	<?php include('templates/footer.php'); ?>
 
 	<script>
         $(document).ready(function () {
