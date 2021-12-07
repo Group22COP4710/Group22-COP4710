@@ -12,15 +12,7 @@
 		echo 'Connection error: '. mysqli_connect_error();
 	}
 	else
-	{
-		$sql = "SELECT * FROM RequestForms WHERE Req_ID = {$reqid}";
-		$reqForm = mysqli_query($conn, $sql);
-		
-		if ($row = mysqli_fetch_assoc($reqForm))
-		{
-			$semid = $row["Sem_ID"];
-			$userid = $row["User_ID"];
-			
+	{			
 			$sql = "SELECT * FROM bookOrder WHERE Req_ID = {$reqid}";
 			$bookOrders = mysqli_query($conn, $sql);
 			
@@ -38,11 +30,6 @@
 			}
 			
 			// returnData($reqid,$userid,$semid,$orderCount,$orders);
-		}
-		else 
-		{
-			// returnError(500, "No forms found");
-		}
 		
 		print_r($orders);
 		mysqli_close($conn);
