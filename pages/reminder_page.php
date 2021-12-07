@@ -20,7 +20,12 @@
         
        include('../api/setDeadline.php');
 	    
-    } // end POST check
+    } 
+    else if(isset($_POST['remindersubmit'])){
+        
+        include('../api/sendReminder.php');
+         
+     }// end POST check
 ?>
 
 <html>
@@ -54,6 +59,12 @@
                 View all forms
                 </a>
             </div>
+		</form>
+
+        <form class="white login-form" action="reminder_page.php" method="POST">
+			<div class="center">
+				<input type="submit" name="remindersubmit" value="Send reminder for deadline" class="btn brand z-depth-0">
+			</div>
 		</form>
         
 
