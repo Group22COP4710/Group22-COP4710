@@ -10,29 +10,18 @@
 	}
 	else
 	{
-		$result = mysqli_query($conn,"SELECT Season, Year FROM Semester WHERE Sem_ID = {$semid}");
 		
-		if ($row = mysqli_fetch_assoc($result))
-		{
-			if ($row["Season"] == "Fall")
+			if ($_COOKIE["Season"] == "Fall")
 			{
-				$newYear = $row["Year"] + 1;
+				$newYear = $_COOKIE['Year'] + 1;
 				$newSeason = "Spring";
 			}
-			else if ($row["Season"] == "Spring")
+			else if ($_COOKIE["Season"] == "Spring")
 			{
-				$newYear = $row["Year"];
+				$newYear = $_COOKIE["Year"];
 				$newSeason = "Fall";
 			}
-			else
-			{
-				echo "Database Error";
-			}
-		}
-		else
-		{
-			echo "Invalid Request";
-		}
+
 		
 		$result = mysqli_query($conn,"UPDATE Semester SET Current = false WHERE Sem_ID = {$semid}");
 		if ($result)
@@ -41,9 +30,9 @@
 			
 			include('../api/getCurrentSemester.php');
 			setcookie("Sem_ID",$semester["Sem_ID"], time()+3600, '/');
-			setcookie("Year",$semester["Year"], time()+3600, '/');
+			setcookie("Year",$newYear, time()+3600, '/');
 			setcookie("Deadline",null, time()+3600, '/');
-			setcookie("Season",$semester["Season"], time()+3600, '/');
+			setcookie("Season",$newSeason, time()+3600, '/');
 		}
 		else
 		{
