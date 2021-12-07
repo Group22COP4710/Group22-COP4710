@@ -61,7 +61,7 @@
             </div>
 		</form>
 
-        <form class="white login-form" action="reminder_page.php" method="POST">
+        <form class="white login-form" action="../pages/reminder_page.php" method="POST">
 			<div class="center">
 				<input type="submit" name="remindersubmit" value="Send reminder for deadline" class="btn brand z-depth-0">
 			</div>
