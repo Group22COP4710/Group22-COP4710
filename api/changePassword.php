@@ -1,7 +1,7 @@
 <?php
 
 
-	$userid = $_COOKIE["User"]=>"User_ID";
+	$userid = $_COOKIE["User"]["User_ID"];
 	$oldpass = $_POST["oldpass"];
 	$newpass = $_POST["newpass"];
 	$retype = $_POST["retypepass"];
