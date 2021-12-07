@@ -91,7 +91,7 @@
             <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>All book order forms</strong></h4>
             <hr>
 
-            <form class="float-right" action="../pages/book_requests.php" method="POST">
+            <form class="float-right" action="../pages/reminder_page.php" method="POST">
 					<label></label>
                     <input type="submit" value="View" name="view_all_orders">
 
