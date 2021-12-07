@@ -4,7 +4,7 @@
 	$orders = [];
 	$orderCount = 0;
 
-	if ($_POST["view/edit"] == 'View/Edit'])
+	if ($_POST["view/edit"] == 'View/Edit')
 	{
 		include('../api/getRequestForm.php');
 	}
