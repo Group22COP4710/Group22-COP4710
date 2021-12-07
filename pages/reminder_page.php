@@ -66,14 +66,15 @@
 			</div>
 
             <div class="center">
-                <input class="btn modal-trigger brand z-depth-0" type="input" value="View all forms" 
-                    href="#view-forms-modal" name="view_all_orders">
+                <a class="btn modal-trigger brand z-depth-0"
+                    href="#view-forms-modal" >View all forms
+                </a>
                 
                 
             </div>
 		</form>
 
-        <form class="white login-form" action="../pages/reminder_page.php" method="POST">
+        <form class="login-form" action="../pages/reminder_page.php" method="POST">
 			<div class="center">
 				<input type="submit" name="remindersubmit" value="Send reminder for deadline" class="btn brand z-depth-0">
 			</div>
@@ -91,8 +92,8 @@
             <hr>
 
             <form class="float-right" action="../pages/book_requests.php" method="POST">
-					<!-- <label></label>
-                    			<input type="submit" name="view_edit" value="All"> -->
+					<label></label>
+                    <input type="input" value="View" name="view_all_orders">
 
 				</form>
 				<h3>All book orders</h3>
