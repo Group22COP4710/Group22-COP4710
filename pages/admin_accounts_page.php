@@ -162,6 +162,14 @@ if(isset($_POST['createAdmin'])){
                     Create new admin account
                     </a>
                 </div>
+
+                <br />
+
+                <div class="center">
+                    <a class="waves-effect waves-light btn modal-trigger brand z-depth-0" href="#delete-admin-modal">
+                    Delete admin account
+                    </a>
+                </div>
 		
 		<br />
 
