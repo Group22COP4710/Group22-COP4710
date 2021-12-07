@@ -24,42 +24,7 @@
 			$retVal = array("Error"=>"No orders found");
 		}
 
-		$conn->close();
+		mysqli_close($conn);
 	}
-	
-	// function getRequestInfo()
-	// {
-	// 	return json_decode(file_get_contents('php://input'), true);
-	// }
-
-	// function sendJSON( $obj )
-	// {
-	// 	header('Content-type: application/json');
-	// 	echo $obj;
-	// }
-	
-	function returnData($oid,$title,$isbn,$author,$edition,$pub,$reqid)
-	{
-		$retValue = array(
-				"Order_ID"=>$oid,
-				"Title"=>$title,
-				"ISBN"=>$isbn,
-				"Author"=>$author,
-				"Edition"=>$edition,
-				"Publisher"=>$pub,
-				"Req_ID"=>$reqid);
 		
-		//sendJSON(json_encode($retValue, JSON_FORCE_OBJECT));
-	}
-	
-	// function returnError($code, $err )
-	// {
-	// 	$retValue = array(
-	// 		"Error"=>array(
-	// 			"code"=>$code,
-	// 			"Message"=>$err));
-		
-	// 	sendJSON(json_encode($retValue,JSON_FORCE_OBJECT));
-	// }
-	
 ?>

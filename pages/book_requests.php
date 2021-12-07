@@ -1,32 +1,20 @@
 <?php 
 
+
+	$orders = [];
+	$orderCount = 0;
+
+	if ($_POST["view/edit"] == 'View/Edit'])
+	{
+		include('../api/getRequestForm.php');
+	}
+
 	$title = $authors = $edition = $publisher = $ISBN = '';
 	$errors = array('title' => '', 'authors' => '', 'edition' => '', 'publisher' => '', 'ISBN' => '');
 
 	if(isset($_POST['submit'])){
 		
-		// check email
-		if(empty($_POST['email'])){
-			$errors['email'] = 'An email is required';
-		} else{
-			$email = $_POST['email'];
-			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-				$errors['email'] = 'Email must be a valid email address';
-			}
-		}
-
-		// check title
-		if(empty($_POST['title'])){
-			$errors['title'] = 'A title is required';
-		} else{
-			$title = $_POST['title'];
-			if(!preg_match('/^[a-zA-Z\s]+$/', $title)){
-				$errors['title'] = 'Title must be letters and spaces only';
-			}
-		}
-
-		echo $email;
-		echo $title;
+		
 
 	} // end POST check
 
@@ -75,9 +63,9 @@
 	</section>
 
 	<div class="center">
-		<a class="waves-effect waves-light btn modal-trigger brand z-depth-0" href="#demo-modal">
-		View/edit request form
-        </a>
+		<input class="waves-effect waves-light btn modal-trigger brand z-depth-0" type="input" 
+			name="view/edit" value="View/Edit" href="#demo-modal">
+		
 	</div>
 
 	<div class="">
@@ -99,6 +87,23 @@
 					<input type="checkbox" id="book3" name="book3" value="book3">
 					<label for="book3"> English</label><br><br>
 				</form>
+
+				<ul>
+                <?php foreach($orders as $item => $preVal){ ?>
+                    
+                    <?php foreach($preVal as $key => $value){ ?>
+
+                        <li><h5>
+                        <?php
+                            echo $key . ": ";
+                            echo $value; ?>
+                        <h5></li>
+
+                    <?php } ?>
+
+                    <?php echo '<br/>'; ?>
+                <?php } ?>
+                </ul>
 
             </div>
   
