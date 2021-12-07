@@ -1,15 +1,8 @@
 <?php
 
-// $age = [[ "User_Id" => 1, "email" => "test@test.com", "Name" => "fakeName", "User_Type" => "Super_Admin" ], [ "User_Id" => 2, "email" => "test@test.com", "Name" => "fakeName", "User_Type" => "Super_Admin" ]];
-
 $usertype = $_POST["User_Type"];
 $searchCount = 0;
 $retArray = [];
-
-foreach($age as $newAge => $value)
-{
-    echo $newAge . '  ' . $value . '<br/>';
-}
 
 if($_POST['User_Type'] == 'All')
 {
@@ -112,7 +105,7 @@ $creation = array('success' => '');
                 <div class="center">
                     <a class="waves-effect waves-light btn modal-trigger brand z-depth-0" 
                         name="view-admin" href="#view-admin-modal">
-                    View admin accounts
+                    View all faculty accounts
                     </a>
                 </div>
                 <input type="text" value="Admin" name="User_Type" style="display: none;">
@@ -169,9 +162,8 @@ $creation = array('success' => '');
             <div class="modal-content grey-text">
                 <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>Faculty accounts</strong></h4>
 				<hr>
-                <form class="white login-form" action="admin_accounts_page.php" method="POST">
-                    <label></label>
-                    <input type="submit" name="User_Type" value="All">
+                <form class="login-form" action="admin_accounts_page.php" method="POST">
+                    <input type="submit" name="User_Type" value="View all">
 
                 </form>
 
