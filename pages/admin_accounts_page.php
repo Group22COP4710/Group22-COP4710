@@ -81,7 +81,7 @@ if(isset($_POST['createAdmin'])){
 	use PHPMailer\PHPMailer\Exception;
 	require '../phpmailer/vendor/autoload.php';
 	
-	function sendRemindMailFunction($reminderEmail, $deadlineStatus) {
+	function sendMailFunction($reminderEmail, $deadlineStatus) {
 		$mail = new PHPMailer();
 		
 		try {
