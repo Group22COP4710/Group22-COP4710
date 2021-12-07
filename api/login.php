@@ -6,7 +6,7 @@
 	$retVal = [];
 
 	$conn = mysqli_connect("localhost", "user", "password", "final"); 	
-	if($error mysqli_connect_error() )
+	if($error = mysqli_connect_error() )
 	{
 		$retVal = array("Error" => $error );
 	}
