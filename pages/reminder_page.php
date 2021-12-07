@@ -19,7 +19,7 @@
     if(isset($_POST['view_all_orders']))
     {
         include('../api/getTotalRequest.php');
-        print_r($forms);
+        print_r($forms['Orders']);
     }
 
     
