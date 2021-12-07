@@ -16,64 +16,62 @@ if($_POST['User_Type'] == 'All')
 
 }
 
-
-
 $email = $name = $password = '';
 $errors = array('email' => '', 'name' => '', 'password' => '');
 $creation = array('success' => '');
 
-// // connect to the database
-// $conn = mysqli_connect('localhost', 'user', 'password', 'final');
 
-// if(isset($_POST['submit'])){
+if(isset($_POST['createAdmin'])){
+    // connect to the database
+    $conn = mysqli_connect('localhost', 'user', 'password', 'final');
     
-//     // check email
-//     if(empty($_POST['email'])){
-//         $errors['email'] = 'An email is required';
-//     } else{
-//         $email = $_POST['email'];
-//         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-//             $errors['email'] = 'Email must be a valid email address';
-//         }
-//     }
+    // check email
+    if(empty($_POST['email'])){
+        $errors['email'] = 'An email is required';
+    } else{
+        $email = $_POST['email'];
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $errors['email'] = 'Email must be a valid email address';
+        }
+    }
 
-//     if(empty($_POST['name'])){
-//         $errors['name'] = 'An name is required';
-//     } else{
-//         $name = $_POST['name'];
-//     }
+    if(empty($_POST['name'])){
+        $errors['name'] = 'An name is required';
+    } else{
+        $name = $_POST['name'];
+    }
 
-//     if(empty($_POST['password'])){
-//         $errors['password'] = 'Password is required';
-//     } else{
-//         $password = $_POST['password'];
-//     }
+    if(empty($_POST['password'])){
+        $errors['password'] = 'Password is required';
+    } else{
+        $password = $_POST['password'];
+    }
 
-//     if(array_filter($errors)){
-//         // echo 'errors in form';
-//     } else {
-//         // echo 'form is valid';
-//         // echo $email . " " . $password;
+    if(array_filter($errors)){
+        // echo 'errors in form';
+    } else {
+        // echo 'form is valid';
+        // echo $email . " " . $password;
         
-//         if (!$conn) {
-//             die("Connection failed: " . mysqli_connect_error());
-//         }
-//         else{
-//             // echo 'connect successful';
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        else{
+            // echo 'connect successful';
             
-//             $sql = "INSERT INTO Users (email, Name, Password, User_Type) VALUES ('$email', '$name', '$password', 'Admin')";
+            $sql = "INSERT INTO Users (email, Name, Password, User_Type) VALUES ('$email', '$name', '$password', 'Admin')";
     
-//             if (mysqli_query($conn, $sql)) {
-//                 // echo "New record created successfully";
-//                 $creation['success'] = 'Account created successfully';
-//             } else {
-//                 echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-//             }
-//             mysqli_close($conn);
-//         }
-//     }	
+            if (mysqli_query($conn, $sql)) {
+                // echo "New record created successfully";
+                $creation['success'] = 'Account created successfully';
+            } else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
+            mysqli_close($conn);
+        }
+    }	
 
-// } // end POST check
+} // end POST check
 
 ?>
 
@@ -229,7 +227,7 @@ $creation = array('success' => '');
 
                     <div class="modal-footer">
                         
-                        <input type="submit" name="submit" value="Create admin" class="btn brand z-depth-0">
+                        <input type="submit" name="createAdmin" value="Create admin" class="btn brand z-depth-0">
         
 
                         <a href="#!" class="modal-action 
