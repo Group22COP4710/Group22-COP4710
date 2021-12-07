@@ -2,7 +2,7 @@
 
 
 
-	$deadline = date("Y-m-d", strtotime$_POST["Deadline"]);
+	$deadline = date("Y-m-d", strtotime($_POST["Deadline"]));
 	
 	$conn = mysqli_connect("localhost", "user", "password", "final"); 	
 	if($error = mysqli_connect_error() )
