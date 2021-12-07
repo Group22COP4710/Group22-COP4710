@@ -79,7 +79,7 @@
                 <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>View/edit request form</strong></h4>
 				<hr>
 
-				<form class="float-left" action="../homepage.php" method="POST">
+				<form class="float-left" action="../pages/book_requests.php" method="POST">
 					<label></label>
                     			<input type="submit" name="view_edit" value="All">
 					
