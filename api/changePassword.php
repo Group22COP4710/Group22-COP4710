@@ -1,7 +1,6 @@
 <?php
 
-
-	$userid = $_SESSION["User"]["User_ID"];
+	$userid = $_COOKIE["User_ID"];
 	$oldpass = $_POST["oldpass"];
 	$newpass = $_POST["newpass"];
 	$retype = $_POST["retypepass"];
