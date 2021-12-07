@@ -9,7 +9,6 @@
 		include('../api/getRequestForm.php');
 		print_r($orders);
 
-
 	}
 
 	$title = $authors = $edition = $publisher = $ISBN = '';
