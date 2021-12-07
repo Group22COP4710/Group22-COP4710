@@ -38,8 +38,12 @@
 			include('../api/login.php');
 			include('../api/getCurrentSemester.php');
 			
-			setcookie("User",$retVal, time()+3600, '/');
-			setcookie("Semester",$semester, time()+3600, '/');
+			setcookie("User_Type",$retVal["User_Type"], time()+3600, '/');
+			setcookie("User_ID",$retVal["User_ID"], time()+3600, '/');
+			setcookie("Sem_ID",$semester["Sem_ID"], time()+3600, '/');
+			setcookie("Year",$semester["Year"], time()+3600, '/');
+			setcookie("Deadline",$semester["Deadline"], time()+3600, '/');
+			setcookie("Season",$semester["Season"], time()+3600, '/');
 			
 			if ($retVal["User_Type"] == 'Admin' || $retVal["User_Type"] == 'Super_Admin') {
 				header('Location: ../admin_homepage.php');
