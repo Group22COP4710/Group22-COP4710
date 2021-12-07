@@ -24,7 +24,7 @@
 			$retVal = array("Error"=>"Login Unsuccessful");
 		}
 
-		$conn->close();
+		mysqli_close($conn);
 	}
 	
 	
