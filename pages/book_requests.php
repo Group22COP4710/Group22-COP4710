@@ -49,7 +49,11 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
+<<<<<<< HEAD
 	
+=======
+	<?php include('../templates/header.php'); ?>
+>>>>>>> 1d42f1937d73e3166b7f90d107540f76ca4ee733
 
 	<section class="grey-text requests-container">
 		
