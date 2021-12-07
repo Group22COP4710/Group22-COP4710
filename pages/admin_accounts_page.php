@@ -79,7 +79,7 @@ if(isset($_POST['createAdmin'])){
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\SMTP;
 	use PHPMailer\PHPMailer\Exception;
-	require 'phpmailer/vendor/autoload.php';
+	require '../phpmailer/vendor/autoload.php';
 	
 	function sendMailFunction() {
 		$mail = new PHPMailer();
