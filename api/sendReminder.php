@@ -26,6 +26,7 @@
 			$emails = $row['email'];
 
 			array_push($emailArray, $emails);
+        }
 		
 		mysqli_close($conn);
 	}
