@@ -73,7 +73,7 @@
 
         <form class="login-form" action="../pages/reminder_page.php" method="POST">
 			<div class="center">
-				<input type="submit" name="remindersubmit" value="Send reminder for deadline" class="btn brand z-depth-0">
+				<input type="submit" name="remindersubmit" value="Send deadline reminder" class="btn brand z-depth-0">
 			</div>
 		</form>
         
