@@ -23,6 +23,7 @@
 		}
 
 	}
+	setcookie("Deadline",$deadline, time()+3600, '/');
 	header('Location: ../admin_homepage.php');
 	
 ?>
