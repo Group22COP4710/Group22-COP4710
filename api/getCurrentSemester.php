@@ -2,8 +2,8 @@
 
 	$retVal = [];
 
-	$conn = new mysqli_connect("localhost", "user", "password", "final"); 	
-	if( $conn->connect_error )
+	$conn = mysqli_connect("localhost", "user", "password", "final"); 	
+	if( mysqli_connect_error() )
 	{
 		$retVal = array("Error" => $conn->connect_error );
 	}
@@ -11,23 +11,18 @@
 	{
 		$result = mysqli_query($conn, "SELECT Season, Year, Deadline FROM Semester WHERE Current = true");
 		
-		if ($row = $mysqli_fetch_assoc($result))
+		if ($row = mysqli_fetch_assoc($result))
 		{
 			$retVal = returnData($row["Season"], $row["Year"],$row["Deadline"]);
 		}
 		else
 		{
-			$retVal => array("Error"=>"No semester found");
+			$retVal = array("Error"=>"No semester found");
 		}
 
 		$conn->close();
 	}
 	
-	// function sendJSON( $obj )
-	// {
-	// 	header('Content-type: application/json');
-	// 	echo $obj;
-	// }
 	
 	function returnData($season, $year, $deadline)
 	{
@@ -38,14 +33,5 @@
 		);
 	}
 	
-	// function returnError($code, $err )
-	// {
-	// 	$retValue = array(
-	// 		"Error"=>array(
-	// 			"code"=>$code,
-	// 			"Message"=>$err));
-		
-	// 	sendJSON(json_encode($retValue, JSON_FORCE_OBJECT));
-	// }
 	
 ?>
