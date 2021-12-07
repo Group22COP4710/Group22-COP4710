@@ -41,14 +41,13 @@
 			<label>Current Deadline: <p><?php echo $deadlineStatus;?></p>
 			<label>Deadline date (mm-dd-yyyy)</label>
 			<input type="text" name="deadline" value="">
-			<div class="red-text"><?php echo $errors['deadline']; ?></div>
+
+			<div class="red-text"></div>
 
 			<div class="center">
-                <div class="green-text"><?php echo $creation['success']; ?></div>
+                <div class="green-text"></div>
 				<input type="submit" name="submit" value="Set deadline" class="btn brand z-depth-0">
 				<br /><br />
-                <hr style="border-top: 1px dashed grey;">
-                <br />
 			</div>
 
             <div class="center">
