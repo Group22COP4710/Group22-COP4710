@@ -39,7 +39,7 @@
             <h3 class="brand-logo brand-text center">Set deadline date</h3>
             <hr style="margin-bottom: 15px; border-top: 3px solid;">
 			<label>Current Deadline: <p><?php echo $deadlineStatus;?></p>
-			<label>Deadline date (mm/dd/yyyy)</label>
+			<label>Deadline date (mm-dd-yyyy)</label>
 			<input type="text" name="deadline" value="">
 			<div class="red-text"><?php echo $errors['deadline']; ?></div>
 
