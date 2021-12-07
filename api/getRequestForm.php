@@ -44,7 +44,7 @@
 			// returnError(500, "No forms found");
 		}
 		
-		echo $orders;
+		print_r($orders);
 		mysqli_close($conn);
 	}
 	
