@@ -2,11 +2,11 @@
 
 	// $inData = getRequestInfo();
 	$reqid = $_COOKIE["Req_ID"];
-	$title = $_POST["Title"];
+	$title = $_POST["title"];
 	$ISBN = $_POST["ISBN"];
-	$author = $_POST["Author"];
-	$publisher = $_POST["Publisher"];
-	$edition = $_POST["Edition"];
+	$author = $_POST["authors"];
+	$publisher = $_POST["publisher"];
+	$edition = $_POST["edition"];
 	
 	$conn = mysqli_connect("localhost", "user", "password", "final"); 	
 	if(!$conn){
