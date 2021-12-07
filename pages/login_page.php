@@ -49,7 +49,7 @@
 				header('Location: ../admin_homepage.php');
 			}
 			else if ($retVal["User_Type"] == 'Professor'){
-				header('Location: ../homepage.php');
+				header('Location: ../pages/book_requests.php');
 			}
 			else {
 				echo $retVal["Error"];	
