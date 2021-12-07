@@ -100,7 +100,7 @@ if(isset($_POST['createAdmin'])){
            		 // $mail->addAddress('fecen71933@sinagalore.com');     //Add a recipient
            		 $mail->addAddress($reminderEmail);     //Add a recipient
 
-            $body_content = 'Reminder: Order forms must be in by <br />' . $deadlineStatus . '.<br /> Login or Sign up at www.andregr.xyz/index.html';
+            $body_content = 'Reminder: Order forms must be in by <br />' . $deadlineStatus . '.<br /> Login or Sign up at www.andregr.xyz/index.php';
             
 
 			//Content
