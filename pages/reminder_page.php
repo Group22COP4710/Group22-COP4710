@@ -10,8 +10,8 @@
 	}
 	else
 	{
-		$originalDate = "2010-03-21";
-		$deadlineStatus = date("d-m-Y", strtotime($originalDate));
+		$originalDate = $_COOKIE["Deadline"];
+		$deadlineStatus = date("m-d-Y", strtotime($originalDate));
 	}
 
     
