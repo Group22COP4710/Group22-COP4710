@@ -34,13 +34,13 @@
     // Loop through professor array and send reminder email
     foreach($emailArray as $reminderEmail)
     {
-        sendRemindMailFunction($reminderEmail);
+        sendRemindMailFunction($reminderEmail,$deadlineStatus);
     }
 
 
 	
 	//Create an instance; passing `true` enables exceptions
-	function sendRemindMailFunction($reminderEmail) {
+	function sendRemindMailFunction($reminderEmail, $deadlineStatus) {
 		$mail = new PHPMailer();
 		
 		try {
