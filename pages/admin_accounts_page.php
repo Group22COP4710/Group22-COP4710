@@ -100,7 +100,7 @@ if(isset($_POST['createAdmin'])){
 		
 			$mail->isHTML(true);                                  
 			$mail->Subject = 'Reminder to submit book orders';
-			$mail->Body    = "Book orders are due on {$_COOKIE['Deadline']}, log on or sign up at andregr.xyz/index.php to submit. <br />";
+			$mail->Body    = "Book orders are due on " . $_COOKIE['Deadline'] . " , log on or sign up at andregr.xyz/index.php to submit. <br />";
 		
 			$mail->send();
 			echo 'Message has been sent';
