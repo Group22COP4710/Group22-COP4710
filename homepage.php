@@ -5,7 +5,7 @@
 	}
 	else
 	{
-		$result = mysqli_query($conn, "SELECT Req_ID FROM RequestForms WHERE USER_ID = {$_COOKIE['User_ID']} AND {$_COOKIE['Sem_ID']");
+		$result = mysqli_query($conn, "SELECT Req_ID FROM RequestForms WHERE USER_ID = {$_COOKIE['User_ID']} AND {$_COOKIE['Sem_ID']}");
 		if ($row = mysqli_fetch_assoc($result))
 		{
 			setcookie("Req_ID",$row["Req_ID"],time()+3600 , '/' );	
