@@ -4,8 +4,8 @@
 	echo $reqid;
 	$semid = $_COOKIE['Sem_ID'];
 	$userid = $_COOKIE['User_ID'];
-	// $orders = [];
-	// $orderCount = 0;
+	$orders = [];
+	$orderCount = 0;
 	
 	$conn = mysqli_connect("localhost", "user", "password", "final"); 	
 	if(!$conn){
