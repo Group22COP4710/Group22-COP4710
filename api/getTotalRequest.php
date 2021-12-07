@@ -53,7 +53,6 @@
 			}
 			
 			$requestForm = array(
-				"Request Form"=>array(
 					"Req_ID"=>$reqid,
 					"User_ID"=>$userid,
 					"Sem_ID"=>$semid,
