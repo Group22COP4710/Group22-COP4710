@@ -1,5 +1,5 @@
 <?php 
-	echo $_COOKIE["User"]
+	echo $_COOKIE["User"];
 	include('../api/changePassword.php');
 ?>
 
