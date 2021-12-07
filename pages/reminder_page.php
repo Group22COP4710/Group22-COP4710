@@ -117,7 +117,7 @@
             <input style="margin-right: 10px;" value="Finalize orders"
                 type="submit" name="finalize" class="modal-action modal-close waves-effect waves-green 
                 btn green lighten-1">
-                </form?>
+                </form>
 
 
             <a href="#!" class="modal-action 
