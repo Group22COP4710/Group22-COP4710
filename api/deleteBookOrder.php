@@ -8,7 +8,7 @@
 	}
 	else
 	{
-		$sql = "DELETE FROM bookOrder WHERE Order_ID={$oid}";
+		$sql = "DELETE FROM bookOrder WHERE Order_ID={$oid} AND Req_ID={$_COOKIE['Req_ID']}";
 		$result = mysqli_query($conn, $sql);
 		
 		if ($result)
