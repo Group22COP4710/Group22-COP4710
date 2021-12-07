@@ -1,64 +1,48 @@
 <?php
 
-	$inData = getRequestInfo();
 
-	$userid = $inData["User_ID"];
-	$oldpass = $inData["oldPassword"];
-	$newpass = $inData["newPassword"];
-	$retype = $inData["retypePassword"];
+	$userid = $_POST["User_ID"];
+	$oldpass = $_POST["oldpass"];
+	$newpass = $_POST["newpass"];
+	$retype = $_POST["retypepass"];
 	
-	$conn = new mysqli("localhost", "user", "password", "final"); 	
-	if( $conn->connect_error )
+	$retVal;
+
+	if(isset($_POST['submit']))
 	{
-		returnError(500, $conn->connect_error);
-	}
-	else if ($newpass != $retype)
-	{
-		returnError(400, "Passwords don't match");
-	}
-	else
-	{
-		$result = $conn->query("SELECT Password FROM Users WHERE User_ID = {$userid}");
 		
-		if ($row = $result->fetch_assoc())
+		$conn = mysqli_connect("localhost", "user", "password", "final"); 	
+		if( $conn->connect_error )
 		{
-			if ($row["Password"] == $oldpass)
-			{
-				$result = $conn->query("UPDATE Users SET Password = '{$newpass}' WHERE User_ID = {$userid}");
-				returnError(200, "Password successfully changed");
-			}
-			else
-			{
-				returnError(400, "Old password incorrect");
-			}
+			$retVal = $conn->connect_error;
+		}
+		else if ($newpass != $retype)
+		{
+			$retVal = "Passwords don't match";
 		}
 		else
 		{
-			returnError(500, "Error Occured");
+			$result = mysqli_query($conn, "SELECT Password FROM Users WHERE User_ID = {$userid}");
+			
+			if ($row = mysqli_fetch_assoc($result))
+			{
+				if ($row["Password"] == $oldpass)
+				{
+					$result = mysqli_query($conn, "UPDATE Users SET Password = '{$newpass}' WHERE User_ID = {$userid}");
+					$retVal =  "Password successfully changed";
+				}
+				else
+				{
+					$retVal =  "Old password incorrect";
+				}
+			}
+			else
+			{	
+				$retVal =  "Error Occured";
+			}
+	
+			$conn->close();
 		}
-
-		$conn->close();
-	}
-	
-	function getRequestInfo()
-	{
-		return json_decode(file_get_contents('php://input'), true);
-	}
-
-	function sendJSON( $obj )
-	{
-		header('Content-type: application/json');
-		echo $obj;
-	}
-	
-	function returnError($code, $err )
-	{
-		$retValue = array(
-			"Error"=>array(
-				"code"=>$code,
-				"Message"=>$err));
-		
-		sendJSON(json_encode($retValue, JSON_FORCE_OBJECT));
 	}
 	
 ?>

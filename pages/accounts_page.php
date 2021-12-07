@@ -30,15 +30,15 @@
                 <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>Change Password</strong></h4>
 				<hr>
 
-				<form class="white login-form" action="sign_up_page.php" method="POST">
+				<form class="white login-form" action="../api/changePassword.php" method="POST">
                     <label>Old password</label>
-                    <input type="text" name="email" value="">
-                    <div class="red-text"><?php echo $errors['email']; ?></div>
+                    <input type="text" name="oldpass" value="">
+                    <div class="red-text"><?php echo $errors['password']; ?></div>
                     <label>New password</label>
-                    <input type="text" name="password" value="">
+                    <input type="text" name="newpass" value="">
                     <div class="red-text"><?php echo $errors['password']; ?></div>
                     <label>Retype new password</label>
-                    <input type="text" name="password" value="">
+                    <input type="text" name="retypepass" value="">
                     <div class="red-text"><?php echo $errors['password']; ?></div>
                 </form>
 
@@ -66,6 +66,6 @@
 		)
     </script>
 
-	<?php include('templates/footer.php'); ?>
+	<?php include('../templates/footer.php'); ?>
 
 </html>
