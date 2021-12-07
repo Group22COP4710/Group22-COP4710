@@ -31,29 +31,29 @@
 
 	<section class="grey-text requests-container">
 		
-		<form class="white book-request-form" action="book_requests.php" method="POST">
+		<form class="white book-request-form" action="../pages/book_requests.php" method="POST">
 			<h4 class="center">Add new book request</h4>
 			<hr />
 			<br />
 
 			<label>Book Title</label>
-			<input type="text" name="email" value="<?php echo htmlspecialchars($title) ?>">
+			<input type="text" name="title" value="">
 			<div class="red-text"><?php echo $errors['title']; ?></div>
 
 			<label>Authors Name(s)</label>
-			<input type="text" name="authors" value="<?php echo htmlspecialchars($authors) ?>">
+			<input type="text" name="authors" value="">
 			<div class="red-text"><?php echo $errors['authors']; ?></div>
 
 			<label>Book edition</label>
-			<input type="text" name="edition" value="<?php echo htmlspecialchars($edition) ?>">
+			<input type="text" name="edition" value="">
 			<div class="red-text"><?php echo $errors['edition']; ?></div>
 
 			<label>Publisher</label>
-			<input type="text" name="publisher" value="<?php echo htmlspecialchars($publisher) ?>">
+			<input type="text" name="publisher" value="">
 			<div class="red-text"><?php echo $errors['publisher']; ?></div>
 
 			<label>ISBN</label>
-			<input type="text" name="ISBN" value="<?php echo htmlspecialchars($ISBN) ?>">
+			<input type="text" name="ISBN" value="">
 			<div class="red-text"><?php echo $errors['ISBN']; ?></div>
 
 			<div class="center">
