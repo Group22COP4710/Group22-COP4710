@@ -164,7 +164,7 @@ $creation = array('success' => '');
 				<hr>
                 <form class="login-form" action="admin_accounts_page.php" method="POST">
 			<label></label>
-                    <input type="submit" name="User_Type" value="View all">
+                    <input type="submit" name="User_Type" value="All">
 
                 </form>
 
