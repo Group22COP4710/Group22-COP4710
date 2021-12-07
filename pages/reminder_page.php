@@ -16,7 +16,10 @@
         print_r($orders);
     }
 
-    
+    if(isset($_POST['finalize']))
+    {
+	include('../api/sumbitSemester.php');    
+    }
 
     if(isset($_POST['submit'])){
         
@@ -110,10 +113,11 @@
         </div>
 
         <div class="modal-footer">
+		<form class="float-right" action="../pages/reminder_page.php" method="POST">
             <input style="margin-right: 10px;" value="Finalize orders"
                 type="submit" name="finalize" class="modal-action modal-close waves-effect waves-green 
                 btn green lighten-1">
-                
+                </form?
 
 
             <a href="#!" class="modal-action 
