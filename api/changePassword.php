@@ -3,8 +3,8 @@
 
 	$userid = $_POST["User_ID"];
 	$oldpass = $_POST["oldpass"];
-	$newpass = $_PASS["newpass"];
-	$retype = $_PASS["retypepass"];
+	$newpass = $_POST["newpass"];
+	$retype = $_POST["retypepass"];
 	
 	$retVal;
 
