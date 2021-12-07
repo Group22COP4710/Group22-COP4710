@@ -18,7 +18,7 @@
 			$orders = [];
 			$orderCount = 0;
 
-			$sql = "SELECT * FROM bookOrder;
+			$sql = "SELECT * FROM bookOrder";
 			$ordersResult = mysqli_query($conn, $sql);
 			
 			while ($row = mysqli_fetch_assoc($ordersResult))
