@@ -46,7 +46,7 @@
 			setcookie("Season",$semester["Season"], time()+3600, '/');
 			
 			if ($retVal["User_Type"] == 'Admin' || $retVal["User_Type"] == 'Super_Admin') {
-				header('Location: ../admin_homepage.php');
+				header('Location: ../pages/reminder_page.php');
 			}
 			else if ($retVal["User_Type"] == 'Professor'){
 				header('Location: ../pages/book_requests.php');

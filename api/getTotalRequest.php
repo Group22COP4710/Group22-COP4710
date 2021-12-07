@@ -12,31 +12,13 @@
 	}
 	else
 	{
-// 		$sql = "SELECT Season, Year FROM Semester WHERE Sem_ID = {$semid}";
-// 		$result = mysqli_query($conn, $sql);
 
-		// if ($row = $result->fetch_assoc())
-		// {
-		// 	$season = $row["Season"];
-		// 	$year = $row["Year"];
-		// }
-		// else
-		// {
-		// 	returnError(500, "Error Occured");
-		// }
-		
-		$sql = "SELECT * FROM RequestForms WHERE Sem_ID={$semid}";
-		$reqForm = mysqli_query($conn, $sql);
-		
-		while ($row = mysqli_fetch_assoc($reqForm))
-		{
-			$reqid = $row["Req_ID"];
-			$userid = $row["User_ID"];
+
 			
 			$orders = [];
 			$orderCount = 0;
 
-			$sql = "SELECT * FROM bookOrder WHERE Req_ID = {$reqid}";
+			$sql = "SELECT * FROM bookOrder;
 			$ordersResult = mysqli_query($conn, $sql);
 			
 			while ($orderRow = mysqli_fetch_assoc($ordersResult))
@@ -61,7 +43,7 @@
 			
 			array_push($forms, $requestForm);
 			$formCount++;
-		}
+
 		
 		
 	}
