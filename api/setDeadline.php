@@ -2,7 +2,7 @@
 
 
 
-	$deadline = $_POST["Deadline"];
+	$deadline = $_POST["deadline"];
 	
 	$conn = mysqli_connect("localhost", "user", "password", "final"); 	
 	if($error = mysqli_connect_error() )
