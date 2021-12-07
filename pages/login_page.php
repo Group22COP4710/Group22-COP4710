@@ -63,7 +63,7 @@
 
 	<section class="container grey-text">
 		<h1 class="brand-logo brand-text center">COP 4710 Book Order Site</h1>
-		<form class="white login-form" action="login_page.php" method="POST">
+		<form class="white login-form" action="/pages/login_page.php" method="POST">
 			<label>Email</label>
 			<input type="text" id="email" value="">
 			<div class="red-text"><?php echo $errors['email']; ?></div>
