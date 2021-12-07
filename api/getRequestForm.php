@@ -1,6 +1,7 @@
 <?php
 
 	$reqid = $_COOKIE['Req_ID'];
+	echo $reqid;
 	$semid = $_COOKIE['Sem_ID'];
 	$userid = $_COOKIE['User_ID'];
 	// $orders = [];
