@@ -4,7 +4,7 @@
 	$orders = [];
 	$orderCount = 0;
 
-	if ($_POST["view-edit"] == 'View-Edit')
+	if (isset($_POST["view-edit"]))
 	{
 		include('../api/getRequestForm.php');
 	}
@@ -77,7 +77,7 @@
                 <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>View/edit request form</strong></h4>
 				<hr>
 
-				<form class="float-left" action="../pages/book_requests.php">
+				<form class="float-left" action="../pages/book_requests.php" method="POST">
 					<label></label>
                     			<input type="submit" name="View-Edit" value="All">
 					
