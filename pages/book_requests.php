@@ -63,8 +63,7 @@
 	</section>
 
 	<div class="center">
-		<input class="waves-effect waves-light btn modal-trigger brand z-depth-0" type="input" 
-			name="view/edit" value="View/Edit" href="#demo-modal">
+		<a class="waves-effect waves-light btn modal-trigger brand z-depth-0" href="#demo-modal">View/Edit Request Form</a>
 		
 	</div>
 
@@ -78,7 +77,10 @@
                 <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>View/edit request form</strong></h4>
 				<hr>
 
-				<form class="float-left" action="">
+				<form class="float-left" action="book_requests.php">
+					<label></label>
+                    			<input type="submit" name="View/Edit" value="All">
+					
 					<h5>Books in current order</h5>
 					<input type="checkbox" id="book1" name="book1" value="book1">
 					<label for="book1"> Calc 3</label><br>
