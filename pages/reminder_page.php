@@ -93,7 +93,7 @@
 
             <form class="float-right" action="../pages/book_requests.php" method="POST">
 					<label></label>
-                    <input type="input" value="View" name="view_all_orders">
+                    <input type="submit" value="View" name="view_all_orders">
 
 				</form>
 				<h3>All book orders</h3>
