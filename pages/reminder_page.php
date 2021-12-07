@@ -16,7 +16,7 @@
         // print_r($orders);
     }
 
-    if(isset($_POST['Finalize Orders']))
+    if(isset($_POST['finalize']))
     {
 	include('../api/sumbitSemester.php');    
     }
