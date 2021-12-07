@@ -13,7 +13,7 @@
 		
 		if ($row = mysqli_fetch_assoc($result))
 		{
-			$semester = returnData($row["Season"], $row["Year"],$row["Deadline"],$row["Sem_ID"]);
+			$semester = returnSem($row["Season"], $row["Year"],$row["Deadline"],$row["Sem_ID"]);
 		}
 		else
 		{
@@ -24,7 +24,7 @@
 	}
 	
 	
-	function returnData($season, $year, $deadline,$id)
+	function returnSem($season, $year, $deadline,$id)
 	{
 		return  array(
 			"Season"=>$season,
