@@ -57,7 +57,7 @@
 					"User_ID"=>$userid,
 					"Sem_ID"=>$semid,
 					"Order Count"=>$orderCount,
-					"Orders"=>$orders));
+					"Orders"=>$orders);
 			
 			array_push($forms, $requestForm);
 			$formCount++;
