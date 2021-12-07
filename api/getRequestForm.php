@@ -43,7 +43,8 @@
 		{
 			// returnError(500, "No forms found");
 		}
-
+		
+		echo $orders;
 		mysqli_close($conn);
 	}
 	
