@@ -25,10 +25,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 
-    <?php include('templates/admin_header.php'); ?>
+    <!-- <?php include('templates/admin_header.php'); ?>
 
     <?php include('pages/reminder_page.php'); ?>
 
-	<?php include('templates/footer.php'); ?>
+	<?php include('templates/footer.php'); ?> -->
 
 </html>

@@ -14,6 +14,14 @@
 		$deadlineStatus = $_COOKIE['Deadline'];
 	}
 
+    $forms = [];
+	$formCount = 0;
+    if(isset($_POST['view_all_orders']))
+    {
+        include('../api/getTotalRequest.php');
+        print_r($forms);
+    }
+
     
 
     if(isset($_POST['submit'])){
@@ -24,14 +32,17 @@
 ?>
 
 <html>
-<head>
+
+    
+
+<body class="grey lighten-4">
+    <?php include('../templates/admin_header.php'); ?>
+
     <link href="../css/styles.css" rel="stylesheet">	
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">  
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-</head>
-<body class="">
     
 	<section class="container grey-text" style="display: flex;">
 		<form class="white login-form" action="../pages/reminder_page.php" method="POST">
@@ -50,9 +61,10 @@
 			</div>
 
             <div class="center">
-                <a class="btn modal-trigger brand z-depth-0" href="#view-forms-modal">
-                View all forms
-                </a>
+                <input class="btn modal-trigger brand z-depth-0" type="input" value="View all forms" 
+                    href="#view-forms-modal" name="view_all_orders">
+                
+                
             </div>
 		</form>
         
@@ -67,14 +79,36 @@
             <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>All book order forms</strong></h4>
             <hr>
 
+            <form class="float-right" action="../pages/book_requests.php" method="POST">
+					<!-- <label></label>
+                    			<input type="submit" name="view_edit" value="All"> -->
+
+				</form>
+				<h3>All book orders</h3>
+				<ul>
+                <?php foreach($forms as $item => $preVal){ ?>
+                    <?php foreach($preVal as $key => $value){ ?>
+
+                        <li><h5>
+                        <?php
+                            echo $key . ": ";
+                            echo $value; ?>
+                        <h5></li>
+
+                    <?php } ?>
+
+                    <?php echo '<br/>'; ?>
+                <?php } ?>
+                </ul>
+
         </div>
 
         <div class="modal-footer">
-            <a href="#!" style="margin-right: 10px;" class="modal-action 
-                modal-close waves-effect waves-green 
+            <input style="margin-right: 10px;" value="Finalize orders"
+                type="submit" name="finalize" class="modal-action modal-close waves-effect waves-green 
                 btn green lighten-1">
-                Finalize orders
-            </a>
+                
+
 
             <a href="#!" class="modal-action 
                 modal-close btn brand lighten-1">
@@ -82,6 +116,8 @@
             </a>
         </div>
     </div>
+
+    <?php include('../templates/footer.php'); ?>
 
 </body>
 

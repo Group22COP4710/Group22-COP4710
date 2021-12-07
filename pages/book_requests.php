@@ -113,7 +113,6 @@
 				<h3>Books in current order</h3>
 				<ul>
                 <?php foreach($orders as $item => $preVal){ ?>
-                    <input type="checkbox" id="" name="" value="">
                     <?php foreach($preVal as $key => $value){ ?>
 
                         <li><h5>
