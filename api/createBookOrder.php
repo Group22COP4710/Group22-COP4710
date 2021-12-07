@@ -1,80 +1,45 @@
 <?php
 
-	$inData = getRequestInfo();
+	// $inData = getRequestInfo();
 
-	$reqid = $inData["Req_ID"];
-	$title = $inData["Title"];
-	$ISBN = $inData["ISBN"];
-	$author = $inData["Author"];
-	$publisher = $inData["Publisher"];
-	$edition = $inData["Edition"];
+	$reqid = $_POST["Req_ID"];
+	$title = $_POST["Title"];
+	$ISBN = $_POST["ISBN"];
+	$author = $_POST["Author"];
+	$publisher = $_POST["Publisher"];
+	$edition = $_POST["Edition"];
 	
-	$conn = new mysqli("localhost", "user", "password", "final"); 	
-	if( $conn->connect_error )
-	{
-		returnError(500, $conn->connect_error);
+	$conn = mysqli_connect("localhost", "user", "password", "final"); 	
+	if(!$conn){
+		echo 'Connection error: '. mysqli_connect_error();
 	}
 	else
 	{
-		$result = $conn->query("INSERT INTO bookOrder(Req_ID,Title,ISBN,Author,Publisher,Edition) 
-						VALUES({$reqid},'{$title}','{$ISBN}','{$author}','{$publisher}','{$edition}')");
+		$sql = "INSERT INTO bookOrder(Req_ID,Title,ISBN,Author,Publisher,Edition) 
+		VALUES({$reqid},'{$title}','{$ISBN}','{$author}','{$publisher}','{$edition}')";
+		$result = mysqli_query($conn, $sql);
 		
 		if ($result)
 		{
-			$query = $conn->query("SELECT Order_ID FROM bookOrder WHERE
-			Req_ID={$reqid} AND Title='{$title}' AND ISBN='{$ISBN}' AND Author='{$author}' AND Publisher='{$publisher}' AND Edition='{$edition}'");
+			$sql = "SELECT Order_ID FROM bookOrder WHERE
+			Req_ID={$reqid} AND Title='{$title}' AND ISBN='{$ISBN}' AND Author='{$author}' AND Publisher='{$publisher}' AND Edition='{$edition}'";
+			$query = mysqli_query($conn, $sql);
 			
-			if ($row = $query->fetch_assoc())
+			if ($row = mysqli_fetch_assoc($query))
 			{
-				returnData($row["Order_ID"],$reqid,$title,$ISBN,$author,$publisher,$edition);
+				//returnData($row["Order_ID"],$reqid,$title,$ISBN,$author,$publisher,$edition);
 			}
 			else
 			{
-				returnError(500, "Error Occured");
+				//returnError(500, "Error Occured");
 			}
 		}
 		else
 		{
-			returnError(500, "Invalid Request");
+			//returnError(500, "Invalid Request");
 		}
 
-		$conn->close();
-	}
-	
-	function getRequestInfo()
-	{
-		return json_decode(file_get_contents('php://input'), true);
-	}
-
-	function sendJSON( $obj )
-	{
-		header('Content-type: application/json');
-		echo $obj;
-	}
-	
-	function returnData($id, $t, $i, $a, $p, $e)
-	{
-		$retValue = array(
-			"data"=>array(
-				"Order_ID"=>$id,
-				"Title"=>$t,
-				"ISBN"=>$i,
-				"Author"=>$a,
-				"Publisher"=>$p,
-				"Edition"=>$e),
-			"Error"=>array("code"=>200));
-		
-		sendJSON(json_encode($retValue, JSON_FORCE_OBJECT));
-	}
-	
-	function returnError($code, $err )
-	{
-		$retValue = array(
-			"Error"=>array(
-				"code"=>$code,
-				"Message"=>$err));
-		
-		sendJSON(json_encode($retValue, JSON_FORCE_OBJECT));
+		mysqli_close($conn);
 	}
 	
 ?>
