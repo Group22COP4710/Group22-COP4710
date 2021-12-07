@@ -19,7 +19,7 @@
 				$newYear = $row["Year"] + 1;
 				$newSeason = "Spring";
 			}
-			else if ($row["Season"] = "Spring")
+			else if ($row["Season"] == "Spring")
 			{
 				$newYear = $row["Year"];
 				$newSeason = "Fall";
