@@ -109,7 +109,7 @@
                 <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>View/edit request form</strong></h4>
 				<hr>
 				<form class="" action="../pages/book_requests.php" method="POST">
-					<label>Enter Order ID to delte</label>
+					<label>Enter Order ID to delete</label>
 					<input type="text" name="oiddelete" value="">
 				<div class="center">
 				<input type="submit" name="deleteOrder" value="Delete Order" class="btn brand z-depth-0">
