@@ -23,8 +23,11 @@
 	if (isset($_POST['view_edit']))
 	{
 		include('../api/getRequestForm.php');
-		print_r($orders);
+	}
 
+	if (isset($_POST['delete_form']))
+	{
+		include('../api/deleteRequestForm.php');
 	}
 
 	$title = $authors = $edition = $publisher = $ISBN = '';
@@ -98,7 +101,7 @@
                 <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>View/edit request form</strong></h4>
 				<hr>
 
-				<form class="float-left" action="../pages/book_requests.php" method="POST">
+				<form class="float-right" action="../pages/book_requests.php" method="POST">
 					<label></label>
                     			<input type="submit" name="view_edit" value="All">
 
@@ -123,19 +126,18 @@
 
             </div>
   
-            <div class="modal-footer">
-				<a href="#!" style="margin-right: 10px;" class="modal-action 
+            <form class="modal-footer" action="../pages/book_requests.php" method="POST">
+				<input style="margin-right: 10px;" class="modal-action 
                     modal-close waves-effect waves-red 
-                    btn red lighten-1">
-                    Delete form
-                </a>
+                    btn red lighten-1" type="submit" name="delete_form" value="Delete form">
+                    
 
                 <a href="#!" class="modal-action 
                     modal-close waves-effect 
                     btn brand lighten-1">
                     Close
                 </a>
-            </div>
+            </form>
         </div>
     </div>
 

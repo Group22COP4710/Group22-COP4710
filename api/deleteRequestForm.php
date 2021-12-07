@@ -1,8 +1,6 @@
 <?php
 
-	$inData = getRequestInfo();
-
-	$reqid = $inData["Req_ID"];
+	$reqid = $_COOKIE["Req_ID"];
 	
 	$conn = mysqli_connect("localhost", "user", "password", "final"); 	
 	if(!$conn){
@@ -19,7 +17,7 @@
 			$result = mysqli_query($conn, $sql);
 			if ($result)
 			{
-				returnError(200, "Deletion succesful");
+				Echo ("Deletion succesful");
 			}
 			else
 			{
