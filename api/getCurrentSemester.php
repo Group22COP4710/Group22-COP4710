@@ -2,7 +2,7 @@
 
 	$retVal = [];
 
-	$conn = new mysqli_connect("localhost", "user", "password", "final"); 	
+	$conn = mysqli_connect("localhost", "user", "password", "final"); 	
 	if( $conn->connect_error )
 	{
 		$retVal = array("Error" => $conn->connect_error );
@@ -11,7 +11,7 @@
 	{
 		$result = mysqli_query($conn, "SELECT Season, Year, Deadline FROM Semester WHERE Current = true");
 		
-		if ($row = $mysqli_fetch_assoc($result))
+		if ($row = mysqli_fetch_assoc($result))
 		{
 			$retVal = returnData($row["Season"], $row["Year"],$row["Deadline"]);
 		}
