@@ -13,7 +13,7 @@
 	else
 	{
 
-		$result = mysql_query($conn, "SELECT * FROM Users WHERE email= '{$email}' AND Password= '{$password}'");
+		$result = mysqli_query($conn, "SELECT * FROM Users WHERE email= '{$email}' AND Password= '{$password}'");
 		
 		if ($row = $result_fetch_assoc())
 		{
