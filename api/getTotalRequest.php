@@ -21,28 +21,18 @@
 			$sql = "SELECT * FROM bookOrder;
 			$ordersResult = mysqli_query($conn, $sql);
 			
-			while ($orderRow = mysqli_fetch_assoc($ordersResult))
+			while ($row = mysqli_fetch_assoc($ordersResult))
 			{
 				$bookOrder = array(
-					"Order_ID"=>$orderRow["Order_ID"],
-					"Title"=>$orderRow["Title"],
-					"ISBN"=>$orderRow["ISBN"],
-					"Author"=>$orderRow["Author"],
-					"Edition"=>$orderRow["Edition"],
-					"Publisher"=>$orderRow["Publisher"]);
+					"Order_ID"=>$row["Order_ID"],
+					"Title"=>$row["Title"],
+					"ISBN"=>$row["ISBN"],
+					"Author"=>$row["Author"],
+					"Edition"=>$row["Edition"],
+					"Publisher"=>$row["Publisher"]);
 				array_push($orders, $bookOrder);
 				$orderCount++;
 			}
-			
-			$requestForm = array(
-					"Req_ID"=>$reqid,
-					"User_ID"=>$userid,
-					"Sem_ID"=>$semid,
-					"Order Count"=>$orderCount,
-					"Orders"=>$orders);
-			
-			array_push($forms, $requestForm);
-			$formCount++;
 
 		
 		
