@@ -81,39 +81,44 @@ if(isset($_POST['createAdmin'])){
 	use PHPMailer\PHPMailer\Exception;
 	require '../phpmailer/vendor/autoload.php';
 	
-	function sendMailFunction() {
+	function sendRemindMailFunction($reminderEmail, $deadlineStatus) {
 		$mail = new PHPMailer();
 		
 		try {
+			// $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
 			$mail->isSMTP();
 			$mail->Host = 'smtp.gmail.com';
 			$mail->SMTPAuth = true;
 			$mail->Port = 587;
-
+			// $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 			$mail->Username = 'Group22COP4710@gmail.com';
 			$mail->Password = 'c9ikDm0xHRk84Ad7';
 		
+			//Recipients
 			$mail->setFrom('info@Group22.com', 'UCF');
+			// temp email
+           		 // $mail->addAddress('fecen71933@sinagalore.com');     //Add a recipient
+           		 $mail->addAddress($reminderEmail);     //Add a recipient
 
-			$mail->addAddress($_POST['profemail']);     
+            $body_content = 'Reminder: Order forms must be in by <br />' . $deadlineStatus . '.<br /> Login or Sign up at www.andregr.xyz/index.html';
+            
 
-		
-			$mail->isHTML(true);                                  
-			$mail->Subject = 'Reminder to submit book orders';
-			$mail->Body    = "Book orders are due soon, log on or sign up at andregr.xyz/index.php to submit. <br />";
+			//Content
+			$mail->isHTML(true);                                  //Set email format to HTML
+			$mail->Subject = 'Group 22 deadline reminder';
+			$mail->Body    = $body_content;
+			$mail->AltBody = strip_tags($body_content);
 		
 			$mail->send();
-			echo 'Message has been sent';
+			// echo 'Message has been sent';
 		} catch (Exception $e) {
 			echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 		}
-
-
   	}
 
 
 	if (isset($_POST['profEmail'])) {
-		sendMailFunction();
+		sendMailFunction($_POST['profemail'], $_COOKIE['Deadline']);
 	}
 ?>
 
