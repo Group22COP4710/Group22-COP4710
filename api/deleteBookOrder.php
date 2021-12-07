@@ -1,25 +1,19 @@
 <?php
 
-	$inData = getRequestInfo();
-
-	$oid= $inData["Order_ID"];
+	$oid= $_POST["oiddelete"];
 	
 	$conn = mysqli_connect("localhost", "user", "password", "final"); 	
-	iif(!$conn){
+	if(!$conn){
 		echo 'Connection error: '. mysqli_connect_error();
 	}
 	else
 	{
-		$sql = "DELETE FROM bookOrder WHERE Order_ID={$oid}";
+		$sql = "DELETE FROM bookOrder WHERE Order_ID={$oid} AND Req_ID={$_COOKIE['Req_ID']}";
 		$result = mysqli_query($conn, $sql);
 		
 		if ($result)
 		{
-			returnError(200, "Delete Successful");
-		}
-		else
-		{
-			// returnError(500, "Invalid Request");
+			echo "Delete Successful";
 		}
 
 		mysqli_close($conn);

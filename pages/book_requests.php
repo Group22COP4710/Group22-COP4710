@@ -42,7 +42,11 @@
 		include('../api/createBookOrder.php');
 
 	} // end POST check
-
+	
+	if (isset($_POST['deleteOrder']))
+	{
+		include('../api/deleteBookOrder.php');	
+	}
 ?>
 
 
@@ -104,7 +108,13 @@
             <div class="modal-content grey-text">
                 <h4 class="brand-text text-bold" id="view-edit-modal-title"><strong>View/edit request form</strong></h4>
 				<hr>
-
+				<form class="" action="../pages/book_requests.php" method="POST">
+					<label>Enter Order ID to delte</label>
+					<input type="text" name="oiddelete" value="">
+				<div class="center">
+				<input type="submit" name="deleteOrder" value="Delete Order" class="btn brand z-depth-0">
+				</div>
+		    		</form>
 				<form class="float-right" action="../pages/book_requests.php" method="POST">
 					<label></label>
                     			<input type="submit" name="view_edit" value="All">
