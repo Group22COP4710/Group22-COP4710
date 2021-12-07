@@ -38,10 +38,8 @@
 			include('../api/login.php');
 			include('../api/getCurrentSemester.php');
 			
-			session_start();
-			
-			$_SESSION["User"]=$retVal;
-			$_SESSION["Semeseter"]=$semester;
+			setcookie("User",$retVal, time()+3600, '/');
+			setcookie("Semester",$semester, time()+3600, '/');
 			
 			if ($retVal["User_Type"] == 'Admin' || $retVal["User_Type"] == 'Super_Admin') {
 				header('Location: ../admin_homepage.php');
