@@ -31,7 +31,7 @@
 
 	<section class="grey-text requests-container">
 		
-		<form class="white book-request-form" action="book_requests.php" method="POST">
+		<form class="white book-request-form" action="../pages/book_requests.php" method="POST">
 			<h4 class="center">Add new book request</h4>
 			<hr />
 			<br />
