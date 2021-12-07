@@ -11,7 +11,7 @@
 	}
 	else
 	{
-		$originalDate = "{$_COOKIE['Deadline']}";
+		$originalDate = {$_COOKIE['Deadline']};
 		$deadlineStatus = date("m-d-Y", strtotime($originalDate));
 	}
 
